@@ -1,0 +1,31 @@
+<odoo>
+
+    <record id="view_form_irem" model="ir.ui.view">
+        <field name="name">İrem Form</field>
+        <field name="model">library.irem</field>
+        <field name="arch" type="xml">
+            <form string="Book">
+                <sheet>
+                    <group>
+                        <field name="okul"/>
+                        <field name="grade"/>
+                        <field name="mezuniyet"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_tree_irem" model="ir.ui.view">
+        <field name="name">İrem List</field>
+        <field name="model">library.irem</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="okul"/>
+                <field name="grade"/>
+                <field name="mezuniyet"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

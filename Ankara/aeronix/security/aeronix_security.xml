@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.module.category" id="module_category_aeronix">
+        <field name="name">Aeronix</field>
+        <field name="sequence">10</field>
+    </record>
+    <record id="group_aeronix_user" model="res.groups">
+        <field name="name">Aeronix User</field>
+        <field name="category_id" ref="module_category_aeronix"/>
+    </record>
+    <record id="group_aeronix_manager" model="res.groups">
+        <field name="name">Aeronix Manager</field>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        <field name="implied_ids"
+               eval="[(4, ref('group_aeronix_user'))]"/>
+        <field name="category_id" ref="module_category_aeronix"/>
+    </record>
+</odoo>

@@ -1,0 +1,80 @@
+<odoo>
+    <data>
+        <record id="view_form_oguzhan_employee" model="ir.ui.view">
+            <field name="name">Çalışan Formu</field>
+            <field name="model">oguzhan.employee</field>
+            <field name="arch" type="xml">
+                <form string="Employee">
+                    <sheet>
+                        <group>
+                            <field name="sicil"/>
+                            <field name="name"/>
+                            <field name="departman_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_tree_oguzhan_employee" model="ir.ui.view">
+            <field name="name">Çalışan Listesi</field>
+            <field name="model">oguzhan.employee</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="sicil"/>
+                    <field name="departman_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_form_oguzhan_department" model="ir.ui.view">
+            <field name="name">Departman Formu</field>
+            <field name="model">oguzhan.department</field>
+            <field name="arch" type="xml">
+                <form string="Department">
+                    <sheet>
+                        <group>
+                            <field name="departman"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_tree_oguzhan_department" model="ir.ui.view">
+            <field name="name">Departman Listesi</field>
+            <field name="model">oguzhan.department</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="departman"/>
+                </tree>
+            </field>
+        </record>
+
+
+<!--        <record id="view_form_oguzhan_employee_department" model="ir.ui.view">-->
+<!--            <field name="name">Çalışan-Departman Formu</field>-->
+<!--            <field name="model">oguzhan.employeedepartment</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <form string="Employee-Department">-->
+<!--                    <group>-->
+<!--                        <field name="sicil" widget="many2many_tags"/>-->
+<!--                        <field name="departman"/>-->
+<!--                    </group>-->
+<!--                </form>-->
+<!--            </field>-->
+<!--        </record>-->
+
+<!--        <record id="view_tree_oguzhan_employeedepartment" model="ir.ui.view">-->
+<!--            <field name="name">Çalışan-Departman Listesi</field>-->
+<!--            <field name="model">oguzhan.employeedepartment</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <tree>-->
+<!--                    <field name="sicil"/>-->
+<!--                    <field name="departman"/>-->
+<!--                </tree>-->
+<!--            </field>-->
+<!--        </record>-->
+    </data>
+</odoo>

@@ -1,0 +1,38 @@
+<odoo>
+
+    <menuitem id="menu_oguzhan" name="Oguzhan"/>
+
+    <record id="action_oguzhan_employee" model="ir.actions.act_window">
+        <field name="name">Çalışanlar</field>
+        <field name="res_model">oguzhan.employee</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_oguzhan_department" model="ir.actions.act_window">
+        <field name="name">Departmanlar</field>
+        <field name="res_model">oguzhan.department</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+<!--    <record id="action_oguzhan_employee_department" model="ir.actions.act_window">-->
+<!--        <field name="name">Çalışanlar-Departmanlar</field>-->
+<!--        <field name="res_model">oguzhan.employeedepartment</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--    </record>-->
+
+    <menuitem id="menu_oguzhan_employee"
+              name="Çalışanlar"
+              parent="menu_oguzhan"
+              action="action_oguzhan_employee"/>
+
+    <menuitem id="menu_oguzhan_department"
+              name="Departmanlar"
+              parent="menu_oguzhan"
+              action="action_oguzhan_department"/>
+
+<!--    <menuitem id="menu_oguzhan_employee_department"-->
+<!--              name="Çalışanlar-Departmanlar"-->
+<!--              parent="menu_oguzhan"-->
+<!--              action="action_oguzhan_employee_department"/>-->
+
+</odoo>

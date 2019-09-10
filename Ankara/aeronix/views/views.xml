@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="aeronix.list">
+            <field name="name">Aeronix list</field>
+            <field name="model">aeronix.aeronix</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="id_no"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="aeronix.form">
+            <field name="name">Aeronix form</field>
+            <field name="model">aeronix.aeronix</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="type"/>
+                            <field name="id_no"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="aeronix.action_window">
+            <field name="name">Aeronix window</field>
+            <field name="res_model">aeronix.aeronix</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- Top menu item -->
+
+        <menuitem name="Aeronix" id="aeronix.menu_root"/>
+
+        <!-- menu categories -->
+
+        <menuitem name="Aeronix" id="aeronix.menu_1" parent="aeronix.menu_root" action="aeronix.action_window"/>
+
+    </data>
+</odoo>
