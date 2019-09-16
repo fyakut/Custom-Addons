@@ -1,5 +1,5 @@
-from odoo.odoo import models, fields, api
-from odoo.odoo.exceptions import Warning
+from odoo import models, fields, api
+from odoo.exceptions import Warning
 
 
 class Talent(models.Model):
