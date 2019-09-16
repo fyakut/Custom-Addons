@@ -3,7 +3,7 @@
     'description': 'Deniyoruz',
     'author': 'Oğuzhan Dikici',
     'depends': ['base'],
-    'application': True,
+    'application': False,
     'data': [
         'security/oguzhan_security.xml',
         'security/ir.model.access.csv',

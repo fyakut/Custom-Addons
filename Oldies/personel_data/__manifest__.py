@@ -13,6 +13,6 @@
     'views/hr_employee.xml',
  ],
 
- 'application': True,
+ 'application': False,
  'installable': True,
 }
