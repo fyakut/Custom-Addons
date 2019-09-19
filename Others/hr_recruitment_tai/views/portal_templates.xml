@@ -1,0 +1,1201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+
+        <template id="portal_home_replace" name="Portal replace home content"
+            inherit_id="portal.portal_my_home">
+
+            <xpath expr="//div[hasclass('o_portal_my_home')]" position="inside">
+                <!--<div class="o_portal_my_home_jobs">
+                    <div class="oe_structure" id="oe_structure_portal_my_home_1"/>
+                    <h3>Your Applications</h3>
+                    &lt;!&ndash; foreach for table show  &ndash;&gt;
+                    <div class="o_portal_jobs list-group">
+                        <ul>
+                            <li t-foreach="user_id.sudo().application_ids" t-as="application">
+                                <a t-attf-href="/jobs/detail/#{ slug(application.job_id) }">
+                                            <span t-field="application.job_id.name"/>
+                                        </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>-->
+                <t t-call="portal.portal_docs_entry">
+                    <t t-set="title">Applications</t>
+                    <t t-set="url" t-value="'/my/applications'"/>
+                    <t t-set="count" t-value="2"/>
+                </t>
+
+            </xpath>
+        </template>
+        <template id="portal_layout_details_link" name="Portal Layout - Details link override"
+            inherit_id="portal.portal_layout">
+
+            <xpath expr="//a[@href='/my/account']" position="attributes">
+                <attribute name="href">/my/resume/step1</attribute>
+            </xpath>
+        </template>
+        <template id="portal_breadcrumb_my_resume" name="Portal layout : my resume"
+                  inherit_id="portal.portal_breadcrumbs" priority="30">
+            <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+
+                <li t-if="page_name == 'my_resume'" class="breadcrumb-item">Your Resume</li>
+
+            </xpath>
+        </template>
+        <template id="portal_breadcrumb_my_resume" name="Portal layout : my resume"
+                  inherit_id="website_hr_recruitment.detail" priority="30">
+            <xpath expr="//a[@t-attf-href='/jobs/apply/#{job.id}']" position="replace">
+
+                <a role="button" t-if="job.allready_applied() == 0" t-attf-href="/jobs/apply/#{job.id}" class="btn btn-primary btn-lg float-right mt32 mb4">Apply Now!</a>
+                <a role="button" t-if="job.allready_applied() == -1" t-attf-href="/jobs/apply/#{job.id}" class="btn btn-primary btn-lg float-right mt32 mb4">Apply Now!</a>
+                <a role="button" t-if="job.allready_applied() >= 1" t-attf-href="/jobs/withdraw/#{job.id}" class="btn btn-secondary btn-lg float-right mt32 mb4">Withdraw your application</a>
+
+            </xpath>
+        </template>
+
+        <template id="portal_my_resume">
+            <t t-call-assets="web.assets_frontend" t-css="true"/>
+            <t t-call="portal.portal_layout">
+                <t t-set="additional_title">Resume</t>
+                <div id="wrap"  class="container">
+                    <h2 t-if="job" class="text-center text-muted">
+                        <span t-field="job.name"/>
+                    </h2>
+                </div>
+                <h3 aria-describedby="required_filed_warning">Your Resume</h3>
+                <small id="required_filed_warning" class="form-text text-muted">
+                   Please complete the fields marked with (*). Next button on each tab will save your information. You can make changes later.
+                </small>
+                <div class="row o_portal_resume">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div t-if="error_message" class="alert alert-danger" role="alert">
+                                    <t t-foreach="error_message" t-as="err"><t t-esc="err"/><br /></t>
+                                </div>
+                            </div>
+                            <div id="accordion" class="col-lg-12">
+                              <div class="card">
+                                <div class="card-header" id="headingOne">
+                                  <h5 class="mb-0">
+                                    <button  class="btn btn-link" href="/my/resume/step1" id="step1" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                     Aday Detay Bilgileri
+                                    </button>
+                                  </h5>
+                                </div>
+                                <div id="collapseOne" t-att-class="'collapse show' if step=='step1' else 'collapse'" aria-labelledby="headingOne" data-parent="#accordion">
+                                  <div class="card-body">
+                                     <form action="/my/resume/step1" method="post" class="needs-validation" novalidate="novalidate">
+<!--                                        <link rel="stylesheet" href="/hr_recruitment_tai/static/src/css/resume.css"/>-->
+                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                                    <div class="row ">
+                                                    <div name="file_container" t-attf-class="form-group #{error and 'file' in error and 'has-error' or ''} col-xl-4">
+                                                        <label class="col-form-label" for="file">Add Profile Photo</label>
+                                                        <label class="custom-file">
+                                                        <input name="pp" id="pp" type="file" class="form-control-file"  />
+                                                        <!--  disabled="disabled"     -->
+                                                        <span class="custom-file-control" />
+                                                        </label>
+                                                    </div>
+                                                     <div name="file_container" t-attf-class="form-group #{error and 'cv' in error and 'has-error' or ''} col-xl-4">
+                                                        <label class="col-form-label'#collapseOne'" for="cv">*CV</label>
+                                                        <label class="custom-file">
+                                                        <input required="required" name="cv" id="cv" type="file" disabled="disabled"/>
+                                                        <span class="custom-file-control" />
+                                                        </label>
+                                                    </div>
+                                                     <div name="file_container" t-attf-class="form-group #{error and 'nm' in error and 'has-error' or ''} col-xl-4">
+                                                        <label class="col-form-label" for="nm">*Later of Intention</label>
+                                                        <label class="custom-file">
+                                                        <input required="required" name="nm" id="nm" type="file" disabled="disabled" />
+                                                        <div class="invalid-feedback">
+                                                            Please choose a file for Later of Intention
+                                                        </div>
+                                                        <span class="custom-file-control" />
+                                                        </label>
+                                                    </div>
+                                                    </div>
+                                                    <div class=" row">
+                                                    <div t-attf-class="form-group #{error.get('tckn') and 'o_has_error' or ''} col-xl-4">
+                                                        <label class="col-form-label" for="name">*Identity Number</label>
+                                                        <input id="tckn" maxlength="11" minlength="11" required="required" aria-describedby="passwordHelpInline" type="text" name="tckn" t-attf-class="uppercase form-control #{error.get('tckn') and 'is-invalid' or ''}" t-att-value="tckn or candidate.tckn" />
+                                                        <small id="passwordHelpInline" class="form-text text-muted">
+                                                          Must be 11 characters long.
+                                                        </small>
+                                                        <div class="invalid-feedback">
+                                                          Please enter valid Idendity Number
+                                                        </div>
+                                                    </div>
+                                                    <div t-attf-class="form-group #{error.get('firstname') and 'o_has_error' or ''} col-xl-4">
+                                                        <label class="col-form-label" for="name">*First Name</label>
+                                                        <input required="required" type="text" name="firstname" t-attf-class="uppercase form-control #{error.get('firstname') and 'is-invalid' or ''}" t-att-value="firstname or candidate.firstname" />
+                                                        <div class="invalid-feedback">
+                                                          Please enter a name.
+                                                        </div>
+                                                    </div>
+                                                    <div t-attf-class="form-group #{error.get('lastname') and 'o_has_error' or ''} col-xl-4">
+                                                        <label class="col-form-label" for="name">*Last Name</label>
+                                                        <input required="required" type="text" name="lastname" t-attf-class="uppercase form-control #{error.get('lastname') and 'is-invalid' or ''} " t-att-value="lastname or candidate.lastname" />
+                                                        <div class="invalid-feedback">
+                                                          Please enter a surname.
+                                                        </div>
+                                                    </div>
+                                                    </div>
+
+                                            <div class="clearfix">
+                                                 <button type="submit" class="btn btn-primary float-right mb32 ">
+                                                    Next
+                                                    <span class="fa fa-long-arrow-right" />
+                                                </button>
+                                            </div>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                  <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" href="/my/resume/step2" id="step2" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                      Nüfus Bilgileri
+                                    </button>
+                                  </h5>
+                                </div>
+                                <div id="collapseTwo" t-att-class="'collapse show' if step=='step2' else 'collapse'" aria-labelledby="headingTwo" data-parent="#accordion">
+                                  <div class="card-body">
+                                    <form action="/my/resume/step2" method="post" class="needs-validation" novalidate="novalidate">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                                <div class="card-body row">
+
+                                                <div t-attf-class="form-group #{error.get('date_birth') and 'o_has_error' or ''} col-xl-6">
+                                                    <label class="col-form-label" for="name"> *Date of Birth</label>
+                                                    <input required="required" type="date" name="date_birth" t-attf-class="uppercase form-control #{error.get('date_birth') and 'is-invalid' or ''}" t-att-value="date_birth or candidate.date_birth" />
+                                                    <div class="invalid-feedback">
+                                                    Please choose a date.
+                                                    </div>
+                                                </div>
+
+                                                 <div t-attf-class="form-group #{error.get('location_birth') and 'o_has_error' or ''} col-xl-6">
+                                                    <label class="col-form-label" for="name">*Birth Location</label>
+                                                    <input required="required" type="text" name="location_birth" t-attf-class="uppercase form-control #{error.get('location_birth') and 'is-invalid' or ''}" t-att-value="location_birth or candidate.location_birth" />
+                                                     <div class="invalid-feedback">
+                                                    Please enter a location.
+                                                    </div>
+                                                 </div>
+
+                                                <div t-attf-class="form-group #{error.get('gender') and 'o_has_error' or ''} col-xl-6">
+                                                 <label class="col-form-label" for="gender">*Gender</label>
+                                                 <select required="required" name="gender" t-attf-class="form-control #{error.get('gender') and 'is-invalid' or ''}"  t-att-value="gender or candidate.gender" >
+                                                     <option value="not_applicable">Not Applicable</option>
+                                                     <option value="man">Man</option>
+                                                     <option value="woman">Woman</option>
+                                                 </select>
+                                                 <div class="invalid-feedback">
+                                                    Please enter a gender.
+                                                 </div>
+                                                </div>
+                                                 <div t-attf-class="form-group #{error.get('nationality_id') and 'o_has_error' or ''} col-xl-6">
+                                                    <label class="col-form-label" for="nationality_id">*Nationality</label>
+                                                    <select required="required"  name="nationality_id" t-attf-class="form-control #{error.get('nationality_id') and 'is-invalid' or ''}">
+                                                    <option value="">Nationality...</option>
+                                                    <t t-foreach="countries or []" t-as="country">
+                                                        <option t-att-value="country.id" t-att-selected="country.id == int(nationality_id) if nationality_id else country.id == candidate.nationality_id.id">
+                                                            <t t-esc="country.name" />
+                                                        </option>
+                                                    </t>
+                                                    </select>
+                                                    <div class="invalid-feedback">
+                                                    Please choose a nationality.
+                                                    </div>
+                                                </div>
+
+
+                                                <div t-attf-class="form-group #{error.get('other_nationality_id') and 'o_has_error' or ''} col-xl-6">
+                                                    <label class="col-form-label" for="other_nationality_id">Other Nationality</label>
+                                                    <select name="other_nationality_id" t-attf-class="form-control #{error.get('other_nationality_id') and 'is-invalid' or ''}">
+                                                    <option value="">Other Nationality...</option>
+                                                    <t t-foreach="countries or []" t-as="country">
+                                                        <option t-att-value="country.id" t-att-selected="country.id == int(other_nationality_id) if other_nationality_id else country.id == candidate.other_nationality_id.id">
+                                                            <t t-esc="country.name" />
+                                                        </option>
+                                                    </t>
+                                                    </select>
+                                                </div>
+<!--                                                <t t-esc="dict(candidate.fields_get(allfields=['gender'])['gender']['selection'])[candidate.gender]"/>-->
+                                                </div>
+                                            <div class="clearfix">
+
+                                                <button type="submit" class="btn btn-primary float-right mb32 ">
+                                                Next
+                                                <span class="fa fa-long-arrow-right" />
+                                            </button>
+                                        </div>
+                                </form>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <div class="card-header" id="headingThree">
+                                  <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" href="/my/resume/step3" id="step3" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                      Kişisel Bilgiler
+                                    </button>
+                                  </h5>
+                                </div>
+                                <div id="collapseThree" t-att-class="'collapse show' if step=='step3' else 'collapse'" aria-labelledby="headingThree" data-parent="#accordion">
+                                  <div class="card-body">
+                                    <form action="/my/resume/step3" method="post" class="needs-validation" novalidate="novalidate">
+
+                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                                    <div class="card-body disability" id="dis_first_div">
+                                                    <div class="row">
+                                                     <div t-attf-class="form-group #{error.get('judicial_status') and 'o_has_error' or ''} col-xl-6">
+                                                     <label class="col-form-label" for="judicial_status">*Judicial Status</label>
+                                                     <select required="required" name="judicial_status" t-attf-class="form-control #{error.get('judicial_status') and 'is-invalid' or ''}"  t-att-value="candidate.judicial_status" >
+                                                         <option value="yes_judicial">Yes</option>
+                                                         <option value="non_judicial">No</option>
+                                                     </select>
+                                                     </div>
+                                                     <div  t-attf-class="form-group #{error.get('disability_status') and 'o_has_error' or ''} col-xl-6">
+                                                     <label class="col-form-label" for="disability_status">*Disability Status</label>
+                                                     <select id="dis_statu" onclick="disSetting(document.getElementById('dis_statu').value)" required="required" name="disability_status" t-attf-class="form-control #{error.get('disability_status') and 'is-invalid' or ''}"  t-att-value="candidate.disability_status" >
+                                                         <option value="full" >Full Disable</option> <!--t-att-selected="true if "-->
+                                                         <option value="partly">Partly Disable</option>
+                                                         <option value="non">Non Disable</option>
+                                                     </select>
+                                                    </div>
+                                                    </div>
+                                                    <div id="dis_col" >
+                                                    <div class="row">
+                                                    <div t-attf-class="form-group #{error.get('disability_information') and 'o_has_error' or ''} col-xl-6">
+                                                        <label class="col-form-label" for="disability_information">*Disability Information</label>
+                                                        <input required="required" type="text" name="disability_information" t-attf-class="uppercase form-control #{error.get('disability_information') and 'is-invalid' or ''}" t-att-value="candidate.disability_information" />
+                                                        <div class="invalid-feedback">
+                                                        Please enter a disability information.
+                                                        </div>
+                                                    </div>
+
+                                                    <div t-attf-class="form-group #{error.get('disability_category') and 'o_has_error' or ''} col-xl-6">
+                                                     <label class="col-form-label" for="disability_category">*Disability Category</label>
+                                                     <select required="required" name="disability_category" t-attf-class="form-control #{error.get('disability_status') and 'is-invalid' or ''}"  t-att-value="candidate.disability_category" >
+                                                         <option value="neuro">Neurological</option>
+                                                         <option value="ortho">Orthopedic</option>
+                                                         <option value="uro">Urology</option>
+                                                     </select>
+                                                    </div>
+                                                    </div>
+                                                    <div  class="row">
+                                                    <div t-attf-class="form-group #{error.get('disability_percentage') and 'o_has_error' or ''} col-xl-6">
+                                                        <label class="col-form-label" for="disability_percentage">*Disability Percentage</label>
+                                                        <input  id="floatTextBox"  required="required" type="text" name="disability_percentage" t-attf-class="uppercase form-control #{error.get('disability_percentage') and 'is-invalid' or ''}" t-att-value="candidate.disability_percentage" />
+                                                        <div class="invalid-feedback">
+                                                        Please enter a percentage (Max. 100).
+                                                        </div>
+                                                    </div>
+
+                                                    <div t-attf-class="form-group #{error.get('blocking_illness') and 'o_has_error' or ''} col-xl-6">
+                                                        <label class="col-form-label" for="blocking_illness">*Blocking Illness</label>
+                                                         <select id="blocking_illness_id" required="required" aria-describedby="blocking_illness" name="blocking_illness" t-attf-class="form-control #{error.get('blocking_illness') and 'is-invalid' or ''}"  t-att-value="candidate.blocking_illness" >
+                                                             <option value="yes_illness">Yes</option>
+                                                             <option value="non_illness">No</option>
+                                                         </select>
+                                                        <small id="blocking_illness" class="form-text text-muted">
+                                                          Choose if you have any illnes that blocking to work.
+                                                        </small>
+
+                                                    </div>
+                                                    </div>
+                                                    </div>
+                                                    </div>
+                                                <div class="clearfix">
+                                                    <button type="submit" id="dis_button" class="btn btn-primary float-right mb32 ">
+                                                    Next
+                                                    <span class="fa fa-long-arrow-right" />
+                                                    </button>
+                                                </div>
+                                    </form>
+
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <div class="card-header" id="headingFour">
+                                  <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" href="/my/resume/step4" id="step4" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                      İletişim Bilgileri
+                                    </button>
+                                  </h5>
+                                </div>
+                                <div id="collapseFour" t-att-class="'collapse show' if step=='step4' else 'collapse'" aria-labelledby="headingFour" data-parent="#accordion">
+                                  <div class="card-body">
+                                    <form action="/my/resume/step4" method="post" class="needs-validation" novalidate="novalidate">
+
+                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                        <div class="card-body ">
+                                            <label class="col-form-label" for="province">*Province</label>
+                                            <br>
+                                            </br>
+                                            <select id="province_id" required="required" name="contact_info.province" t-attf-class="form-control #{error.get('contact_info.province') and 'is-invalid' or ''} col-xl-6">
+                                                <option value="">Province...</option>
+                                                <t t-foreach="countries or []" t-as="country">
+                                                    <option t-att-value="country.id" t-att-selected="country.id == int(country_id) if country_id else country.id == contact_info.province.id">
+                                                        <t t-esc="country.name" />
+                                                    </option>
+                                                </t>
+                                            </select>
+                                             <div class="invalid-feedback">
+                                                Please choose a province.
+                                             </div>
+                                            <br>
+                                            </br>
+                                             <label class="col-form-label" for="town">*Town</label>
+                                            <br>
+                                            </br>
+                                             <select required="required" id="city_id" name="contact_info.town" t-attf-class="form-control #{error.get('contact_info.town') and 'is-invalid' or ''} col-xl-6">
+                                                <option value="">Town...</option>
+                                                <t t-foreach="states or []" t-as="state">
+                                                    <option t-att-value="state.id" t-att-selected="state.id == int(contact_info.town) if contact_info.town else state.id == contact_info.town.id">
+                                                        <t t-esc="state.name" />
+                                                    </option>
+                                                </t>
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                Please choose a town.
+                                            </div>
+                                            <div class="row">
+                                            <div t-attf-class="form-group #{error.get('contact_info.zip_code') and 'o_has_error' or ''} col-xl-3">
+                                                <label class="col-form-label" for="zip_code">*Zip Code</label>
+                                                <input id="zip_code" required="required" type="text" name="contact_info.zip_code" t-attf-class="uppercase form-control #{error.get('contact_info.zip_code') and 'is-invalid' or ''}" t-att-value="zip_code or contact_info.zip_code" />
+                                                <div class="invalid-feedback">
+                                                  Please enter a zip code.
+                                                </div>
+                                             </div>
+
+                                             <div t-attf-class="form-group #{error.get('contact_info.phone') and 'o_has_error' or ''} col-xl-3">
+                                                 <label class="col-form-label" for="phone">*Phone Number</label>
+                                                 <input id="phone-mask" required="required" aria-describedby="phone_number" type="tel" name="contact_info.phone" pattern="[0-9]{10}"
+                                                    t-attf-class="uppercase form-control #{error.get('contact_info.phone') and 'is-invalid' or ''}" t-att-value="phone or contact_info.phone" />
+                                                 <div class="invalid-feedback">
+                                                        Please enter a phone number.
+                                                 </div>
+                                                 <small id="phone_number" class="form-text text-muted">
+                                                  Phone number must be in "5xxxxxxxxx" format
+                                                 </small>
+                                             </div>
+
+                                            <div t-attf-class="form-group #{error.get('contact_info.email') and 'o_has_error' or ''} col-xl-3">
+                                                <label class="col-form-label" for="email">*E-Mail</label>
+                                                <input id="txtEmail" onfocusout="Javascript:checkEmail();"  required="required" aria-describedby="email_format"  type="text" name="contact_info.email" t-attf-class="form-control #{error.get('contact_info.email') and 'is-invalid' or ''}" t-att-value="email or  contact_info.email" />
+                                                <div class="invalid-feedback">
+                                                  Please enter a valid E-mail.
+                                                </div>
+                                                <small id="email_format" class="form-text text-muted">
+                                                  E-mail  must be in "tai@tai.com" format
+                                                </small>
+                                            </div>
+                                            </div>
+                                            <div class="row">
+                                            <div t-attf-class="form-group #{error.get('contact_info.emergancy_name') and 'o_has_error' or ''} col-xl-3">
+                                                <label class="col-form-label" for="emergancy_name">Emergancy Name</label>
+                                                <input type="text" name="contact_info.emergancy_name" t-attf-class="uppercase form-control #{error.get('contact_info.emergancy_name') and 'is-invalid' or ''}" t-att-value="emergancy_name or  contact_info.emergancy_name" />
+                                            </div>
+                                            <div t-attf-class="form-group #{error.get('contact_info.emergancy_surname') and 'o_has_error' or ''} col-xl-3">
+                                                <label class="col-form-label" for="emergancy_surname">Emargancy Surname</label>
+                                                <input type="text" name="contact_info.emergancy_surname" t-attf-class="uppercase form-control #{error.get('contact_info.emergancy_surname') and 'is-invalid' or ''}" t-att-value="emergancy_surname or contact_info.emergancy_surname" />
+                                            </div>
+                                             <div t-attf-class="form-group #{error.get('contact_info.emergancy_degree') and 'o_has_error' or ''} col-xl-3">
+                                                <label class="col-form-label" for="emergancy_degree">Relationship Degree</label>
+                                                <input type="text" name="contact_info.emergancy_degree"  t-attf-class="uppercase form-control #{error.get('contact_info.emergancy_degree') and 'is-invalid' or ''}" t-att-value="emergancy_degree or contact_info.emergancy_degree" />
+                                            </div>
+                                            </div>
+                                            <div class="row">
+                                            <div t-attf-class="form-group #{error.get('contact_info.emergancy_phone') and 'o_has_error' or ''} col-xl-3">
+                                                <label class="col-form-label" for="emergancy_phone">Emergancy Phone Number</label>
+                                                <input type="tel" name="contact_info.emergancy_phone"   t-attf-class="uppercase form-control #{error.get('contact_info.emergancy_phone') and 'is-invalid' or ''}" t-att-value="emergancy_phone or contact_info.emergancy_phone" />
+                                            </div>
+                                            </div>
+                                            </div>
+
+                                                <div class="clearfix">
+
+                                                    <button type="submit" class="btn btn-primary float-right mb32 ">
+                                                    Next
+                                                    <span class="fa fa-long-arrow-right" />
+                                                </button>
+                                            </div>
+                                    </form>
+
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <div class="card-header" id="headingFive">
+                                  <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" href="/my/resume/step5" id="step5" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                      Başvuru Bilgiler
+                                    </button>
+                                  </h5>
+                                </div>
+                                <div id="collapseFive" t-att-class="'collapse show' if step=='step5' else 'collapse'" aria-labelledby="headingFive" data-parent="#accordion">
+                                  <div class="card-body">
+                                    <form action="/my/resume/step5" method="post">
+
+                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                                  <div class="card-body">
+                                                     <div t-attf-class="form-group #{error.get('expected_salary_application') and 'o_has_error' or ''} col-xl-6">
+                                                            <label class="col-form-label" for="expected_salary_application">Expected Salary</label>
+<!--                                                           TODO js bu alandan çalışmıyor. Hoca ile incelenecek -->
+                                                             <input id="currencyTextBox" type="text"  name="expected_salary_application" t-attf-class="form-control #{error.get('expected_salary_application') and 'is-invalid' or ''}" t-att-value="candidate.expected_salary_application" />
+
+                                                     </div>
+                                                </div>
+
+
+                                                <div class="clearfix">
+
+                                                    <button type="submit" class="btn btn-primary float-right mb32 ">
+                                                    Next
+                                                    <span class="fa fa-long-arrow-right" />
+                                                </button>
+                                            </div>
+                                    </form>
+
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <div class="card-header" id="headingSix">
+                                  <h5 class="mb-0">
+                                    <a class="btn btn-link collapsed" href="/my/resume/step6" id="step6" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                      Öğrenim Bilgileri
+                                    </a>
+                                  </h5>
+                                </div>
+                                <div id="collapseSix" t-att-class="'collapse show' if step=='step6' else 'collapse'" aria-labelledby="headingSix" data-parent="#accordion">
+                                  <div class="card-body">
+                                    <form action="/my/resume/step6" method="post"  class="needs-validation" novalidate="novalidate">
+
+                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                                <div class="card-body">
+
+                                                     <div >
+                                                     <label class="col-form-label" for="education.degree" >Degree </label>
+                                                     <select name="education.degree"  aria-describedby="degree" t-attf-class="form-control #{error.get('education.degree') and 'is-invalid' or ''}"  t-att-value="education.degree" >
+                                                         <option value="">Degree...</option>
+                                                         <t t-foreach="degrees or []" t-as="degree">
+                                                            <option t-att-value="degree.id" t-att-selected="degree.id == int(degree) if degree else degree.id == education.degree.id">
+                                                                <t t-esc="degree.name" />
+                                                            </option>
+                                                         </t>
+                                                     </select>
+                                                     <small id="degree" class="form-text text-muted">
+                                                          Choose your degree of education.
+                                                     </small>
+                                                     </div>
+
+                                                    <!-- Editable table -->
+                                                    <div class="card">
+                                                      <div class="card-body">
+                                                        <div id="table" class="table-editable">
+                                                          <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
+                                                                class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
+                                                          <table class="table table-bordered table-responsive-md table-striped text-center">
+                                                            <thead>
+                                                              <tr>
+                                                                <th class="text-center">School</th>
+                                                                <th class="text-center">Faculty</th>
+                                                                <th class="text-center">Department</th>
+                                                                <th class="text-center">School Location</th>
+                                                                <th class="text-center">Start Date</th>
+                                                                <th class="text-center">End Date</th>
+                                                                <th class="text-center">Graduation Scor</th>
+                                                                <th class="text-center">Remove</th>
+                                                              </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                              <tr>
+                                                                <td class="pt-6-half" contenteditable="true">
+                                                                 <select name="education.school_id"  t-attf-class="form-control #{error.get('education.school_id') and 'is-invalid' or ''} "  t-att-value="education.school_id" >
+                                                                  <option value="">School...</option>
+                                                                  <t t-foreach="schools or []" t-as="school">
+                                                                    <option t-att-value="school.id" t-att-selected="school.id == int(school) if school else school.id == education.school_id.id">
+                                                                        <t t-esc="school.name" />
+                                                                    </option>
+                                                                  </t>
+                                                                 </select>
+                                                                </td>
+                                                                <td class="pt-6-half" contenteditable="true">
+                                                                  <select name="education.faculty_id"  t-attf-class="form-control #{error.get('education.faculty_id') and 'is-invalid' or ''} "  t-att-value="education.faculty_id" >
+                                                                     <option value="" >Faculty....</option>
+                                                                     <t t-foreach="facultys or []" t-as="faculty">
+                                                                        <option t-att-value="faculty.id" t-att-selected="faculty.id == int(faculty) if faculty else faculty.id == education.faculty_id.id">
+                                                                            <t t-esc="faculty.name" />
+                                                                        </option>
+                                                                     </t>
+                                                                 </select>
+                                                                </td>
+                                                                <td class="pt-3-half" contenteditable="true">
+                                                                 <select name="education.school_department_id"  t-attf-class="form-control #{error.get('education.school_department_id') and 'is-invalid' or ''} "  t-att-value="education.school_department_id" >
+                                                                     <option value="">Department...</option>
+                                                                      <t t-foreach="departments or []" t-as="department">
+                                                                        <option t-att-value="department.id" t-att-selected="department.id == int(department) if department else department.id == education.school_department_id.id">
+                                                                            <t t-esc="department.name" />
+                                                                        </option>
+                                                                     </t>
+                                                                 </select>
+                                                                </td>
+                                                                <td class="pt-3-half" contenteditable="true">
+                                                                 <select name="education.school_province"  t-attf-class="form-control #{error.get('education.school_province') and 'is-invalid' or ''} col-xl-12"  t-att-value="education.school_province" >
+                                                                     <option value="">School Province...</option>
+                                                                      <t t-foreach="sch_provinces or []" t-as="sch_province">
+                                                                        <option t-att-value="sch_province.id" t-att-selected="sch_province.id == int(sch_province) if department else sch_province.id == education.school_province.id">
+                                                                            <t t-esc="sch_province.name" />
+                                                                        </option>
+                                                                     </t>
+                                                                 </select>
+                                                                </td>
+                                                                <td class="pt-3-half" contenteditable="true">
+                                                                    <input class="form-control" type="month" id="start" name="education.date_from" min="2018-03" value="2018-05" t-att-value="education.date_from"/>
+                                                                </td>
+                                                                <td class="pt-3-half" contenteditable="true">
+                                                                    <input  class="form-control" type="number" name="education.date_to" min="1900" max="2099" step="1" size="4" value="2018" t-att-value="education.date_to" />
+                                                                </td>
+                                                                <td class="pt-3-half" contenteditable="true">
+                                                                     <input  type="text" name="education.graduation_score" t-attf-class="form-control #{error.get('education.graduation_score') and 'is-invalid' or ''}" t-att-value="education.graduation_score"  />
+                                                                </td>
+                                                                <td>
+                                                                  <span class="table-remove"><button type="button"
+                                                                      class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
+                                                                </td>
+                                                              </tr>
+                                                              <!-- This is our clonable table line -->
+                                                              <tr>
+                                                                <td class="pt-6-half" contenteditable="true">Guerra Cortez</td>
+                                                                <td class="pt-6-half" contenteditable="true">45</td>
+                                                                <td class="pt-6-half" contenteditable="true">Insectus</td>
+                                                                <td class="pt-3-half" contenteditable="true">USA</td>
+                                                                <td class="pt-3-half" contenteditable="true">San Francisco</td>
+                                                                <td class="pt-3-half"></td>
+                                                                <td class="pt-3-half"></td>
+                                                                <td>
+                                                                  <span class="table-remove"><button type="button"
+                                                                      class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
+                                                                </td>
+                                                              </tr>
+                                                              <!-- This is our clonable table line -->
+                                                              <!-- This is our clonable table line -->
+                                                            </tbody>
+                                                          </table>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <!-- Editable table -->
+
+
+
+                                                     <div >
+                                                     <label class="col-form-label" for="education.degree" >Degree </label>
+                                                     <select name="education.degree"  aria-describedby="degree" t-attf-class="form-control #{error.get('education.degree') and 'is-invalid' or ''}"  t-att-value="education.degree" >
+                                                         <option value="">Degree...</option>
+                                                         <t t-foreach="degrees or []" t-as="degree">
+                                                            <option t-att-value="degree.id" t-att-selected="degree.id == int(degree) if degree else degree.id == education.degree.id">
+                                                                <t t-esc="degree.name" />
+                                                            </option>
+                                                         </t>
+                                                     </select>
+                                                     <small id="degree" class="form-text text-muted">
+                                                          Choose your degree of education.
+                                                     </small>
+                                                     </div>
+                                                     <div class="row" >
+                                                     <div class="col-xl-3">
+                                                     <label class="col-form-label" for="education.school_id" >School </label>
+                                                     <select name="education.school_id"  t-attf-class="form-control #{error.get('education.school_id') and 'is-invalid' or ''} "  t-att-value="education.school_id" >
+                                                         <option value="">School...</option>
+                                                         <t t-foreach="schools or []" t-as="school">
+                                                            <option t-att-value="school.id" t-att-selected="school.id == int(school) if school else school.id == education.school_id.id">
+                                                                <t t-esc="school.name" />
+                                                            </option>
+                                                         </t>
+                                                     </select>
+                                                     </div>
+                                                     <div class="col-xl-3">
+                                                     <label class="col-form-label" for="education.faculty_id" style="margin-right:10px; margin-left:10px;">Faculty </label>
+                                                     <select name="education.faculty_id"  t-attf-class="form-control #{error.get('education.faculty_id') and 'is-invalid' or ''} "  t-att-value="education.faculty_id" >
+                                                         <option value="" >Faculty....</option>
+                                                         <t t-foreach="facultys or []" t-as="faculty">
+                                                            <option t-att-value="faculty.id" t-att-selected="faculty.id == int(faculty) if faculty else faculty.id == education.faculty_id.id">
+                                                                <t t-esc="faculty.name" />
+                                                            </option>
+                                                         </t>
+                                                     </select>
+                                                     </div>
+                                                     <div class="col-xl-3">
+                                                     <label class="col-form-label"  for="education.school_department_id">Department </label><span> </span>
+                                                     <select name="education.school_department_id"  t-attf-class="form-control #{error.get('education.school_department_id') and 'is-invalid' or ''} "  t-att-value="education.school_department_id" >
+                                                         <option value="">Department...</option>
+                                                          <t t-foreach="departments or []" t-as="department">
+                                                            <option t-att-value="department.id" t-att-selected="department.id == int(department) if department else department.id == education.school_department_id.id">
+                                                                <t t-esc="department.name" />
+                                                            </option>
+                                                         </t>
+                                                     </select>
+                                                    </div>
+                                                    </div>
+                                                    <br></br>
+                                                    <div class="row">
+                                                    <div class="col-xl-3">
+                                                     <label class="col-form-label" for="education.school_province">School Province</label>
+                                                     <select name="education.school_province"  t-attf-class="form-control #{error.get('education.school_province') and 'is-invalid' or ''} col-xl-12"  t-att-value="education.school_province" >
+                                                         <option value="">School Province...</option>
+                                                          <t t-foreach="sch_provinces or []" t-as="sch_province">
+                                                            <option t-att-value="sch_province.id" t-att-selected="sch_province.id == int(sch_province) if department else sch_province.id == education.school_province.id">
+                                                                <t t-esc="sch_province.name" />
+                                                            </option>
+                                                         </t>
+                                                     </select>
+                                                     </div>
+                                                    <div class="col-xl-3">
+                                                        <label class="col-form-label" for="education.date_from">Start Date:</label>
+                                                        <input class="form-control" type="month" id="start" name="education.date_from" min="2018-03" value="2018-05" t-att-value="education.date_from"/>
+                                                    </div>
+                                                    <div class="col-xl-3">
+                                                        <label class="col-form-label" for="education.date_to">End Date:</label>
+                                                        <input  class="form-control" type="number" name="education.date_to" min="1900" max="2099" step="1" size="4" value="2018" t-att-value="education.date_to" />
+                                                    </div>
+                                                    <div t-attf-class="form-group #{error.get('education.graduation_score') and 'o_has_error' or ''} col-xl-3">
+                                                            <label class="col-form-label" for="education.graduation_score">Graduation Score </label>
+                                                            <input  type="text" name="education.graduation_score" t-attf-class="form-control #{error.get('education.graduation_score') and 'is-invalid' or ''}" t-att-value="education.graduation_score"  />
+                                                    </div>
+                                                    </div>
+<!--                                                      <ul id="schools_list">-->
+<!--                                                      <li t-foreach="schools" t-as="school">-->
+<!--                                                        <span t-field="school.name"/>-->
+<!--                                                        <button t-att-data-ref-id="school.id">Edit</button>-->
+<!--                                                        <label class="col-form-label" for="school_id">School Name</label>-->
+<!--                                                        <select name="school_id"  t-attf-class="form-control #{error.get('school_id') and 'is-invalid' or ''}"  t-att-value="education.school_id" >-->
+<!--                                                         <option value="gazi">Gazi Universty</option>-->
+<!--                                                         <option value="kku">Kırıkkale Universty</option>-->
+<!--                                                         <option value="bilkent">Bilkent Universty</option>-->
+<!--                                                         </select>-->
+
+<!--                                                      </li>-->
+<!--                                                      </ul>-->
+
+
+
+<!--                                                        <select name="country_id" t-attf-class="form-control #{error.get('country_id') and 'is-invalid' or ''}">&ndash;&gt;-->
+<!--                                                            <option value="">Country...</option>-->
+<!--                                                            <t t-foreach="countries or []" t-as="country">-->
+<!--                                                                <option t-att-value="country.id" t-att-selected="country.id == int(country_id) if country_id else country.id == candidate.country_id.id">-->
+<!--                                                                    <t t-esc="country.name" />-->
+<!--                                                                </option>-->
+<!--                                                            </t>-->
+<!--                                                        </select>-->
+
+
+<!--                                                          <ul id="degrees_list">-->
+<!--                                                          <li t-foreach="education_degrees" t-as="degree">-->
+<!--                                                            <span t-field="degree.name"/>-->
+<!--                                                          </li>-->
+<!--                                                          </ul>-->
+
+                                                </div>
+                                                <div class="clearfix">
+
+                                                    <button type="submit" class="btn btn-primary float-right mb32 ">
+                                                    Next
+                                                    <span class="fa fa-long-arrow-right" />
+                                                </button>
+                                            </div>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <div class="card-header" id="headingSeven">
+                                  <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" href="/my/resume/step7" id="step7" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                      Sertifika/Bilgisayar Bilgileri
+                                    </button>
+                                  </h5>
+                                </div>
+                                <div id="collapseSeven" t-att-class="'collapse show' if step=='step7' else 'collapse'" aria-labelledby="headingSeven" data-parent="#accordion">
+                                  <div class="card-body">
+                                    <form action="/my/resume/step7" method="post">
+
+                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                                <div class="card-body">
+                                                  Sertifika/Bilgisayar Bilgileri
+                                                </div>
+
+                                                <div class="clearfix">
+
+                                                    <button type="submit" class="btn btn-primary float-right mb32 ">
+                                                    Next
+                                                    <span class="fa fa-long-arrow-right" />
+                                                </button>
+                                            </div>
+                                    </form>
+
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <div class="card-header" id="headingEight">
+                                  <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" href="/my/resume/step8" id="step8" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                      Yabancı Dil Bilgileri
+                                    </button>
+                                  </h5>
+                                </div>
+                                <div id="collapseEight" t-att-class="'collapse show' if step=='step8' else 'collapse'" aria-labelledby="headingEight" data-parent="#accordion">
+                                  <div class="card-body">
+                                    <form action="/my/resume/step8" method="post">
+
+                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                                <div class="card-body">
+                                                    <div class="row" >
+
+                                                         <div t-attf-class="form-group #{error.get('eng_exam.eng_level') and 'o_has_error' or ''} col-xl-3">
+                                                         <label class="col-form-label" for="eng_exam.eng_level">*English Level</label>
+                                                         <select name="eng_exam.eng_level" t-attf-class="form-control #{error.get('eng_exam.eng_level') and 'is-invalid' or ''}"  t-att-value="eng_exam.eng_level" >
+                                                             <option value="basic">Basic</option>
+                                                             <option value="inter">Intermediate</option>
+                                                             <option value="advanced">Advanced</option>
+                                                         </select>
+                                                        </div>
+
+                                                         <div t-attf-class="form-group #{error.get('eng_exam.eng_exam_name') and 'o_has_error' or ''} col-xl-3">
+                                                         <label class="col-form-label" for="eng_exam.eng_exam_name">Exam</label>
+                                                         <select id="eng_exam" name="eng_exam.eng_exam_name" onclick="engSetting(document.getElementById('eng_exam').value)"  t-attf-class="form-control #{error.get('eng_exam.eng_exam_name') and 'is-invalid' or ''}">
+                                                            <option value=""> </option>
+                                                            <t t-foreach="exams or []" t-as="exam">
+                                                                <option t-att-value="exam.id" t-att-selected="exam.id == int(eng_exam_name) if eng_exam_name else exam.id == eng_exam.eng_exam_name.id">
+                                                                    <t t-esc="exam.name" />
+                                                                </option>
+                                                            </t>
+                                                        </select>
+                                                         </div>
+
+                                                         <div t-attf-class="form-group #{error.get('eng_exam.eng_exam_score') and 'o_has_error' or ''} col-xl-3">
+                                                            <label id="eng_score_lb_id" class="col-form-label" for="eng_exam.eng_exam_score">English Exam Score</label>
+                                                            <input id="eng_score_id" required="required" type="text" name="eng_exam.eng_exam_score" t-attf-class="uppercase form-control #{error.get('eng_exam.eng_exam_score') and 'is-invalid' or ''}" t-att-value="eng_exam.eng_exam_score" />
+                                                        </div>
+
+                                                        <div class="col-xl-3">
+                                                            <label id="eng_exam_date_id" class="col-form-label" for="eng_exam.eng_exam_date">English Exam Date</label>
+                                                            <input id="eng_exam_date" class="form-control" required="required" type="month"  name="eng_exam.eng_exam_date" min="2018-03" value="2018-05" t-att-value="eng_exam.eng_exam_date"/>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="row" >
+
+                                                         <div t-attf-class="form-group #{error.get('other_exam.other_lang_name') and 'o_has_error' or ''} col-xl-3">
+                                                         <label class="col-form-label" for="other_exam.other_lang_name">Other Language</label>
+                                                         <select id="other_exam" name="other_exam.other_lang_name" onclick="otherLangSetting(document.getElementById('other_exam').value)" t-attf-class="form-control #{error.get('other_exam.other_lang_name') and 'is-invalid' or ''}"  t-att-value="other_exam.other_lang_name" >
+                                                             <option value=""> </option>
+                                                             <option value="ger">German</option>
+                                                             <option value="fr">French</option>
+                                                             <option value="span">Spanish</option>
+                                                         </select>
+                                                        </div>
+
+                                                        <div t-attf-class="form-group #{error.get('other_exam.other_exam_level') and 'o_has_error' or ''} col-xl-3">
+                                                         <label id="o_lan_label" class="col-form-label" for="other_exam.other_exam_level">*Other Language Level</label>
+                                                         <select id="o_lan_level" name="other_exam.other_exam_level" t-attf-class="form-control #{error.get('other_exam.other_exam_level') and 'is-invalid' or ''}"  t-att-value="other_exam.other_exam_level" >
+                                                             <option value=""> </option>
+                                                             <option value="basic">Basic</option>
+                                                             <option value="inter">Intermediate</option>
+                                                             <option value="advanced">Advanced</option>
+                                                         </select>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="clearfix">
+                                                    <button type="submit" class="btn btn-primary float-right mb32 ">
+                                                    Next
+                                                    <span class="fa fa-long-arrow-right" />
+                                                </button>
+                                            </div>
+                                    </form>
+
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <div class="card-header" id="headingNine">
+                                  <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" href="/my/resume/step9" id="step9" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapsenine">
+                                      İş Tecrübeleri
+                                    </button>
+                                  </h5>
+                                </div>
+                                <div id="collapseNine" t-att-class="'collapse show' if step=='step9' else 'collapse'" aria-labelledby="headingNine" data-parent="#accordion">
+                                  <div class="card-body">
+                                    <form action="/my/resume/step9" method="post">
+
+                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                        <link rel="stylesheet" href="/hr_recruitment_tai/static/src/css/text.css"/>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                    <div class="col-xl-3">
+                                                    <div t-attf-class="form-group #{error.get('experience.company_name') and 'o_has_error' or ''} ">
+                                                        <label class="col-form-label" for="experience.company_name">Company Name</label>
+                                                        <input id="company_name_i" type="text" name="experience.company_name" t-attf-class="uppercase form-control #{error.get('experience.company_name') and 'is-invalid' or ''}" t-att-value="experience.company_name" />
+                                                    </div>
+                                                    </div>
+                                                    <div class="col-xl-3">
+                                                    <div t-attf-class="form-group #{error.get('experience.position') and 'o_has_error' or ''} ">
+                                                        <label class="col-form-label" for="experience.position">Position</label>
+                                                        <input type="text" name="experience.position" t-attf-class="uppercase form-control #{error.get('experience.position') and 'is-invalid' or ''}" t-att-value="experience.position" />
+                                                    </div>
+                                                    </div>
+                                                    <div class="col-xl-3">
+                                                    <div t-attf-class="form-group #{error.get('experience.responsibilities') and 'o_has_error' or ''} ">
+                                                        <label class="col-form-label" for="experience.responsibilities">Responsibilities</label>
+                                                        <input type="text" name="experience.responsibilities" t-attf-class="uppercase form-control #{error.get('experience.responsibilities') and 'is-invalid' or ''}" t-att-value="experience.responsibilities" />
+                                                    </div>
+                                                    </div>
+                                                     <div class="col-xl-3">
+                                                     <label class="col-form-label" for="experience.type">Type</label>
+                                                     <select name="experience.type" t-attf-class="form-control #{error.get('experience.type') and 'is-invalid' or ''}"  t-att-value="experience.type" >
+                                                         <option value="full">Full</option>
+                                                         <option value="part">Part Time</option>
+                                                         <option value="internship">Internship</option>
+                                                     </select>
+                                                     </div>
+                                                     </div>
+                                                    <div class="row">
+                                                    <div class="col-xl-3">
+                                                    <div t-attf-class="form-group #{error.get('experience.reason_for_leaving') and 'o_has_error' or ''} ">
+                                                        <label class="col-form-label" for="experience.reason_for_leaving"> Reason for Leaving</label>
+                                                        <input type="text" name="experience.reason_for_leaving" t-attf-class="uppercase form-control #{error.get('experience.reason_for_leaving') and 'is-invalid' or ''}" t-att-value="experience.reason_for_leaving" />
+                                                    </div>
+                                                    </div>
+                                                    <div class="col-xl-3">
+                                                    <div t-attf-class="form-group #{error.get('experience.date_from') and 'o_has_error' or ''}">
+                                                        <label class="col-form-label" for="experience.date_from">Start Date:</label>
+                                                        <input class="form-control" type="month" id="start" name="experience.date_from" min="2018-03" value="2018-05" t-att-value="experience.date_from"/>
+                                                    </div>
+                                                    </div>
+                                                    <div class="col-xl-3">
+                                                        <div t-attf-class="form-group #{error.get('experience.date_to') and 'o_has_error' or ''}">
+                                                        <label class="col-form-label" for="experience.date_to">End Date:</label>
+                                                        <input class="form-control" type="month" id="start" name="experience.date_to" min="2018-03" value="2018-05" t-att-value="experience.date_to"/>
+                                                    </div>
+                                                    </div>
+                                                    <div class="col-xl-3">
+                                                    <div t-attf-class="form-group #{error.get('experience.is_current') and 'o_has_error' or ''} ">
+                                                        <label class="col-form-label" for="is_current">Is Current?</label>
+                                                        <input type="checkbox" class="form-check-input" name="experience.is_current" t-attf-class="form-control #{error.get('experience.is_current') and 'is-invalid' or ''}" t-att-value="experience.is_current" t-att-checked="experience.is_current == True "/>
+                                                    </div>
+                                                    </div>
+                                                    </div>
+                                                    <div class="row">
+                                                    <div class="col-xl-3">
+                                                    <div t-attf-class="form-group #{error.get('experience.employer') and 'o_has_error' or ''}">
+                                                        <label class="col-form-label" for="experience.employer">Employer Name Surname</label>
+                                                        <input type="text" name="experience.employer" t-attf-class="uppercase form-control #{error.get('experience.employer') and 'is-invalid' or ''}" t-att-value="experience.employer" />
+                                                    </div>
+                                                    </div>
+                                                     <div class="col-xl-3">
+                                                     <div t-attf-class="form-group #{error.get('experience.employer_company') and 'o_has_error' or ''} ">
+                                                        <label class="col-form-label" for="experience.employer_company">Company</label>
+                                                        <input type="text" name="experience.employer_company" t-attf-class="uppercase form-control #{error.get('experience.employer_company') and 'is-invalid' or ''}" t-att-value="experience.employer_company" />
+                                                    </div>
+                                                    </div>
+                                                    <div class="col-xl-3">
+                                                    <div t-attf-class="form-group #{error.get('experience.employer_duty') and 'o_has_error' or ''}">
+                                                        <label class="col-form-label" for="experience.employer_duty"> Duty</label>
+                                                        <input type="text" name="experience.employer_duty" t-attf-class="uppercase form-control #{error.get('experience.employer_duty') and 'is-invalid' or ''}" t-att-value="experience.employer_duty" />
+                                                    </div>
+                                                    </div>
+                                                    <div class="col-xl-3">
+                                                    <div t-attf-class="form-group #{error.get('experience.employer_phone_number') and 'o_has_error' or ''} ">
+                                                        <label class="col-form-label" for="experience.employer_phone_number">Phone Number</label>
+                                                        <input type="text" name="experience.employer_phone_number" t-attf-class="uppercase form-control #{error.get('experience.employer_phone_number') and 'is-invalid' or ''}" t-att-value="experience.employer_phone_number" />
+                                                    </div>
+                                                    </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="clearfix">
+                                                    <button type="submit" class="btn btn-primary float-right mb32"  >
+                                                    Next
+                                                    <span class="fa fa-long-arrow-right" />
+                                                    </button>
+                                                </div>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <div class="card-header" id="heading13">
+                                  <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" href="/my/resume/step13" id="step13" data-toggle="collapse" data-target="#collapse13" aria-expanded="false" aria-controls="collapse13">
+                                      Referanslar
+                                    </button>
+                                  </h5>
+                                </div>
+                                <div id="collapse13" t-att-class="'collapse show' if step=='step13' else 'collapse'" aria-labelledby="heading13" data-parent="#accordion">
+                                  <div class="card-body">
+                                    <form action="/my/resume/step13" method="post">
+
+                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                                <div class="card-body">
+                                                    <ul id="referance_list">
+                                                    <li t-foreach="referances" t-as="referance">
+
+                                                    <div class="accordion" id="accordionExample">
+                                                      <div class="card">
+                                                        <div class="card-header" id="headingRef">
+                                                          <h2 class="mb-0">
+                                                            <button  t-att-data-ref-id="referance.id" class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseRef" aria-expanded="true" aria-controls="collapseRef">
+                                                                 <span class="uppercase"  t-field="referance.name"/>
+                                                                 <span class="uppercase"  t-field="referance.surname"/>
+
+                                                            </button>
+                                                          </h2>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+
+                                                      <div id="collapseRef" class="collapse" aria-labelledby="headingRef" data-parent="#accordionExample">
+
+                                                          <div class="card-body">
+                                                            <div class="row">
+                                                            <div t-attf-class="form-group #{error.get('referance.name') and 'o_has_error' or ''} col-xl-2">
+                                                                <label class="col-form-label" for="referance.name"> Name</label>
+                                                                <input type="text" name="referance.name" t-attf-class="uppercase form-control #{error.get('referance.name') and 'is-invalid' or ''}" t-att-value="referance.name" />
+                                                            </div>
+
+                                                            <div t-attf-class="form-group #{error.get('referance.surname') and 'o_has_error' or ''} col-xl-2">
+                                                                <label class="col-form-label" for="surname"> Surname</label>
+                                                                <input type="text" name="referance.surname" t-attf-class="uppercase form-control #{error.get('referance.surname') and 'is-invalid' or ''}" t-att-value="referance.surname" />
+                                                            </div>
+                                                             <div t-attf-class="form-group #{error.get('referance.company') and 'o_has_error' or ''} col-xl-2">
+                                                                <label class="col-form-label" for="company">Company</label>
+                                                                <input type="text" name="referance.company" t-attf-class="uppercase form-control #{error.get('referance.company') and 'is-invalid' or ''}" t-att-value="referance.company" />
+                                                            </div>
+
+                                                            <div t-attf-class="form-group #{error.get('referance.duty') and 'o_has_error' or ''} col-xl-2">
+                                                                <label class="col-form-label" for="duty"> Duty</label>
+                                                                <input type="text" name="referance.duty" t-attf-class="uppercase form-control #{error.get('referance.duty') and 'is-invalid' or ''}" t-att-value="referance.duty" />
+                                                            </div>
+                                                            <div t-attf-class="form-group #{error.get('referance.phone') and 'o_has_error' or ''} col-xl-2">
+                                                                <label class="col-form-label" for="phone">Phone Number</label>
+                                                                <input type="text" name="referance.phone" t-attf-class="uppercase form-control #{error.get('referance.phone') and 'is-invalid' or ''}" t-att-value="referance.phone" />
+                                                            </div>
+                                                            <div t-attf-class="form-group #{error.get('referance.is_relative') and 'o_has_error' or ''} col-xl-1">
+                                                                <label class="col-form-label" for="is_relative">Is Relative?</label>
+                                                                <input type="checkbox" class="form-check-input" name="referance.is_relative" t-attf-class="form-control #{error.get('referance.is_relative') and 'is-invalid' or ''}" t-att-value="referance.is_relative" t-att-checked="referance.is_relative == True "/>
+
+                                                            </div>
+                                                             <div t-attf-class="form-group #{error.get('referance.relationship_degree') and 'o_has_error' or ''} col-xl-1">
+                                                                <label class="col-form-label" for="relationship_degree">Relationship Degree</label>
+                                                                <input type="text" name="referance.relationship_degree"  t-attf-class="uppercase form-control #{error.get('referance.relationship_degree') and 'is-invalid' or ''}" t-att-value="referance.relationship_degree" />
+                                                            </div>
+                                                            </div>
+                                                          </div>
+                                                      </div>
+                                                    </li>
+                                                </ul>
+                                                </div>
+                                                <div class="clearfix">
+
+                                                    <button type="submit" class="btn btn-primary float-right mb32 ">
+                                                    Next
+                                                    <span class="fa fa-long-arrow-right" />
+                                                </button>
+                                            </div>
+                                    </form>
+
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <div class="card-header" id="headingTen">
+                                  <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" href="/my/resume/step10" id="step10" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                                     Staj Bilgileri
+                                    </button>
+                                  </h5>
+                                </div>
+                                <div id="collapseTen" t-att-class="'collapse show' if step=='step10' else 'collapse'" aria-labelledby="headingTen" data-parent="#accordion">
+                                  <div class="card-body">
+                                    <form action="/my/resume/step10" method="post">
+
+                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                                <div class="card-body">
+                                                   <div class="row">
+                                                    <div class="col-xl-3">
+                                                    <div t-attf-class="form-group #{error.get('internship.internship_company') and 'o_has_error' or ''} ">
+                                                        <label class="col-form-label" for="internship.internship_company">Internship Company</label>
+                                                        <input type="text" name="internship.internship_company" t-attf-class="uppercase form-control #{error.get('internship.internship_company') and 'is-invalid' or ''}" t-att-value="internship.internship_company" />
+                                                    </div>
+                                                    </div>
+                                                    <div class="col-xl-3">
+                                                    <div t-attf-class="form-group #{error.get('internship.date_from') and 'o_has_error' or ''}">
+                                                        <label class="col-form-label" for="internship.date_from">Start Date:</label>
+                                                        <input class="form-control" type="month" id="start" name="internship.date_from" min="2018-03" value="2018-05" t-att-value="internship.date_from"/>
+                                                    </div>
+                                                    </div>
+                                                    <div class="col-xl-3">
+                                                        <div t-attf-class="form-group #{error.get('internship.date_to') and 'o_has_error' or ''}">
+                                                        <label class="col-form-label" for="internship.date_to">End Date:</label>
+                                                        <input class="form-control" type="month" id="start" name="internship.date_to" min="2018-03" value="2018-05" t-att-value="internship.date_to"/>
+                                                    </div>
+                                                    </div>
+                                                    <div class="col-xl-3">
+                                                    </div>
+                                                  </div>
+                                                </div>
+
+                                                <div class="clearfix">
+
+                                                    <button type="submit" class="btn btn-primary float-right mb32 ">
+                                                    Next
+                                                    <span class="fa fa-long-arrow-right" />
+                                                </button>
+                                            </div>
+                                    </form>
+
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <div class="card-header" id="headingEleven">
+                                  <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" href="/my/resume/step11" id="step11" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                                      Askerlik Bilgileri
+                                    </button>
+                                  </h5>
+                                </div>
+                                <div id="collapseEleven" t-att-class="'collapse show' if step=='step11' else 'collapse'" aria-labelledby="headingEleven" data-parent="#accordion">
+                                  <div class="card-body">
+                                    <form action="/my/resume/step11" method="post">
+
+                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                                <div class="card-body">
+
+                                                   <div t-attf-class="form-group #{error.get('military_status') and 'o_has_error' or ''} col-xl-3">
+                                                     <label class="col-form-label" for="military_status">Military Status</label>
+                                                     <select name="military_status" t-attf-class="form-control #{error.get('military_status') and 'is-invalid' or ''}"  t-att-value="candidate.military_status" >
+                                                         <option value="not_completed">Not Completed</option>
+                                                         <option value="completed">Completed</option>
+                                                         <option value="not_applicable">Not Applicable</option>
+                                                     </select>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="clearfix">
+
+
+
+                                                    <button type="submit" class="btn btn-primary float-right mb32 ">
+                                                    Next
+                                                    <span class="fa fa-long-arrow-right" />
+                                                </button>
+                                            </div>
+                                    </form>
+
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <div class="card-header" id="headingTwelve">
+                                  <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" href="/my/resume/step12" id="step12" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                                      Eklenecek Belgeler
+                                    </button>
+                                  </h5>
+                                </div>
+                                <div id="collapseTwelve" t-att-class="'collapse show' if step=='step12' else 'collapse'" aria-labelledby="headingTwelve" data-parent="#accordion">
+                                  <div class="card-body">
+                                    <form action="/my/resume/step12" method="post">
+
+                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                                 <div class="card-body">
+                                                  Eklenecek Belgeler
+                                                </div>
+
+                                                <div class="clearfix">
+
+                                                    <button type="submit" class="btn btn-primary float-right mb32 ">
+                                                    Next
+                                                    <span class="fa fa-long-arrow-right" />
+                                                </button>
+                                            </div>
+                                    </form>
+
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </t>
+        </template>
+        <template id="portal_my_resume_step1">
+            <t t-call="hr_recruitment_tai.portal_my_resume">
+            </t>
+        </template>
+        <template id="portal_my_resume_step2">
+            <t t-call="hr_recruitment_tai.portal_my_resume">
+            </t>
+        </template>
+        <template id="portal_my_resume_step3">
+            <t t-call="hr_recruitment_tai.portal_my_resume">
+            </t>
+        </template>
+        <template id="portal_my_resume_step4">
+            <t t-call="hr_recruitment_tai.portal_my_resume">
+            </t>
+        </template>
+        <template id="portal_my_resume_step5">
+            <t t-call="hr_recruitment_tai.portal_my_resume">
+            </t>
+        </template>
+        <template id="portal_my_resume_step6">
+            <t t-call="hr_recruitment_tai.portal_my_resume">
+            </t>
+        </template>
+        <template id="portal_my_resume_step7">
+            <t t-call="hr_recruitment_tai.portal_my_resume">
+            </t>
+        </template>
+        <template id="portal_my_resume_step8">
+            <t t-call="hr_recruitment_tai.portal_my_resume">
+            </t>
+        </template>
+        <template id="portal_my_resume_step9">
+            <t t-call="hr_recruitment_tai.portal_my_resume">
+            </t>
+        </template>
+        <template id="portal_my_resume_step10">
+            <t t-call="hr_recruitment_tai.portal_my_resume">
+            </t>
+        </template>
+        <template id="portal_my_resume_step11">
+            <t t-call="hr_recruitment_tai.portal_my_resume">
+            </t>
+        </template>
+        <template id="portal_my_resume_step12">
+            <t t-call="hr_recruitment_tai.portal_my_resume">
+            </t>
+        </template>
+        <template id="portal_my_resume_step13">
+            <t t-call="hr_recruitment_tai.portal_my_resume">
+            </t>
+        </template>
+    </data>
+</odoo>

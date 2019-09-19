@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record id="job_form_inherit_date" model="ir.ui.view">
+			<field name="name">hr.job.form.inherit.dates</field>
+	        <field name="model">hr.job</field>
+	        <field name="inherit_id" ref="hr.view_hr_job_form"/>
+<!-- 	        <field name="groups_id"  eval="[(4,ref('base.group_no_one'))]"/> -->
+	        <field name="arch" type="xml">
+	        	<data>
+	                <xpath expr="//group[@name='recruitment']" position="after">
+	                   <group>
+                   	 		<field name="date_start"/>
+                  			<field name="date_end"/>
+						    <field name="work_type"/>
+	                   </group>
+						<field name="domain_ids"/>
+	                </xpath>
+                </data>
+	        </field>
+		</record>
+
+
+		<record model="ir.ui.view" id="view_hr_job_domains_form">
+	    	<field name="name">hr.job.domains.form</field>
+	        <field name="model">hr.job.domains</field>
+	        <field name="priority">10</field>
+	        <field name="arch" type="xml">
+	            <form>
+	                <sheet>
+	                   	<group>
+	                   		<field name="domain_name"/>
+	                	</group>
+	                </sheet>
+	            </form>
+	        </field>
+        </record>
+
+		<record model="ir.ui.view" id="view_hr_job_domains_tree">
+			<field name="name">hr.job.domains.tree</field>
+			<field name="model">hr.job.domains</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="domain_name"/>
+				</tree>
+			</field>
+	    </record>
+
+
+
+
+
+
+	</data>
+</odoo>

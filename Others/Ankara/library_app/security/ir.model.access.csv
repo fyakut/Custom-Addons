@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+01_user,User,model_library_book,library_group_user,1,0,0,0
+02_manager,Manager,model_library_book,library_group_manager,1,1,1,1
+03_user,User,model_library_irem,library_group_user,1,0,0,0
+04_manager,Manager,model_library_irem,library_group_manager,1,1,1,1

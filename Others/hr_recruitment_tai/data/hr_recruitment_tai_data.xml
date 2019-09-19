@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+
+        <record id="sequence_hr_applicant" model="ir.sequence">
+            <field name="name">HR Application</field>
+            <field name="code">hr.applicant</field>
+            <field name="prefix">BASVURU/%(year)s/%(month)s/</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <record id="sequence_hr_interview" model="ir.sequence">
+            <field name="name">HR Interview</field>
+            <field name="code">hr.interview</field>
+            <field name="prefix">MULAKAT/%(year)s/%(month)s/</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+
+		<record id="01" model="res.country.state">
+            <field name="country_id">224</field>
+            <field name="code">01</field>
+            <field name="name">Adana</field>
+        </record>
+
+        <record id="06" model="res.country.state">
+            <field name="country_id">224</field>
+            <field name="code">06</field>
+            <field name="name">Ankara</field>
+        </record>
+
+        <record id="16" model="res.country.state">
+            <field name="country_id">224</field>
+            <field name="code">16</field>
+            <field name="name">Bursa</field>
+        </record>
+
+        <record id="34" model="res.country.state">
+            <field name="country_id">224</field>
+            <field name="code">34</field>
+            <field name="name">istanbul</field>
+        </record>
+
+
+        <record id="35" model="res.country.state">
+            <field name="country_id">224</field>
+            <field name="code">35</field>
+            <field name="name">izmir</field>
+        </record>
+
+	</data>
+</odoo>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <div t-extend="website.homepage_editor_welcome_message"
+         class="container text-center o_homepage_editor_welcome_message">
+            <t t-jquery="h2" t-operation="replace">
+                new content
+            </t>
+    </div>
+</templates>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Views-->
+        <record id="view_pdks_area_form" model="ir.ui.view">
+            <field name="name">pdks.area.form</field>
+            <field name="model">pdks.areas</field>
+            <field name="arch" type="xml">
+                <form string="Alan tanımlama">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="area_id"/>
+                            <field name="area_name"/>
+                            <field name="area_type"/>
+                        </group>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+		<record id="view_pdks_area_tree" model="ir.ui.view">
+  			<field name="name">pdks.area.tree</field>
+  			<field name="model">pdks.areas</field>
+  			<field name="arch" type="xml">
+            	<tree>
+      				<field name="area_id"/>
+            		<field name="area_name"/>
+            		<field name="area_type"/>
+            	</tree>
+            </field>
+		</record>
+
+        <record id="view_pdks_terminal_form" model="ir.ui.view">
+            <field name="name">pdks.terminal.form</field>
+            <field name="model">pdks.terminal</field>
+            <field name="arch" type="xml">
+                <form string="Terminal Tanımlama">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="device_id"/>
+                            <field name="ip_no"/>
+                            <field name="terminal_no"/>
+                            <field name="terminal_type"/>
+                        </group>
+                        <group>
+                            <field name="enter_code"/>
+                            <field name="exit_code"/>
+                            <field name="area"/>
+                            <field name="explanation"/>
+                            <field name="column"/>
+                        </group>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+		<record id="view_pdks_terminal_tree" model="ir.ui.view">
+  			<field name="name">pdks.terminal.tree</field>
+  			<field name="model">pdks.terminal</field>
+  			<field name="arch" type="xml">
+            	<tree>
+      				<field name="device_id"/>
+            		<field name="ip_no"/>
+            		<field name="terminal_type"/>
+					<field name="area"/>
+					<field name="explanation"/>
+            	</tree>
+            </field>
+		</record>
+
+
+    <!--    Actions-->
+        <record id="pdks_action_area" model = "ir.actions.act_window">
+            <field name="name">Alan Tanımlama Ekranı</field>
+            <field name="res_model">pdks.areas</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="pdks_action_terminal" model="ir.actions.act_window">
+            <field name="name">Terminal Tanımlama Ekranı</field>
+            <field name="res_model">pdks.terminal</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- Menus-->
+        <menuitem id="menu_pdks_root" name="PDKS" sequence="90" />
+
+        <menuitem id="menu_pdks_area" name="Alan Tanımlama" parent ="menu_pdks_root" sequence="10" action="pdks_action_area" />
+
+        <menuitem id="menu_pdks_terminal" name="Terminal Tanımlama" parent ="menu_pdks_root" sequence="20" action="pdks_action_terminal" />
+
+</odoo>

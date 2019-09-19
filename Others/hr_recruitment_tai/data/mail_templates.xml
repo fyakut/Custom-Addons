@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="email_template_notify_applicant" model="mail.template">
+            <field name="name">Job application: Notify need action</field>
+            <field name="model_id" ref="hr_recruitment.model_hr_applicant"/>
+            <field name="email_from">ik@tai.com.tr</field>
+            <field name="partner_to"></field>
+            <field name="subject">Aday Durum Güncelleme Bildirimi</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    ${object.name} başvurusu işlem yapmanızı bekliyor.
+
+                </div>
+            </field>
+            <field name="lang"></field>
+            <field name="user_signature" eval="False"/>
+            <field name="auto_delete" eval="False"/>
+        </record>
+
+
+        <!-- Interview Creation Notification to Interviewers-->
+        <record id="email_template_interview_create_notification_interviewers" model="mail.template">
+            <field name="name">Interview Notification</field>
+            <field name="model_id" ref="hr_recruitment_tai.model_hr_interview_interviewer"/>
+            <field name="subject">Interview Notification / Date: ${object.interview_id.date_start} / Candidate:${object.interview_id.applicant_id.candidate_id.partner_id.name}</field>
+            <field name="email_to">${(object.user_id.partner_id.email) | safe}</field>
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                       style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                    <tr>
+                        <td valign="top">
+                            <div style="font-size: 13px; margin: 0px; padding: 0px;">
+                                Hello,
+                                <br/>
+                                <br/>
+                                Interview Invitation
+                                <br/>
+                                <br/>
+                                Thank you,
+                                <div style="font-size: 11px; color: grey;">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </field>
+            <field name="user_signature" eval="False"/>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+
+
+
+        <!-- Interview Creation Notification to Candidate-->
+        <record id="email_template_interview_create_notification_candidate" model="mail.template">
+            <field name="name">Interview Notification</field>
+            <field name="model_id" ref="hr_recruitment_tai.model_hr_interview"/>
+            <field name="subject">Interview Notification / Date: ${object.date_start}</field>
+            <field name="email_to">${object.applicant_id.candidate_id.partner_id.email | safe}</field>
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0" width="590"
+                       style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                    <tr>
+                        <td valign="top">
+                            <div style="font-size: 13px; margin: 0px; padding: 0px;">
+                                Hello,
+                                <br/>
+                                <br/>
+                                Interview Invitation
+                                <br/>
+                                <br/>
+                                Thank you,
+                                <div style="font-size: 11px; color: grey;">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </field>
+            <field name="user_signature" eval="False"/>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

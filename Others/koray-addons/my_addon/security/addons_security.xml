@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--This will create a category in the ir.module.category-->
+
+<odoo>
+ <record id="module_my_category" model="res.groups">
+  <field name="name">MySecurity</field>
+ </record>
+<!-- Adding two security groups for the user and the admin-->
+
+                 <!-- User Group-->
+ <record id="my_group_user" model="ir.module.category">
+  <field name="name">User</field>
+  <field name="category_id" ref="module_my_category"/>
+ </record>
+<!--  category_id is the related app, ref attribute is used with XML ID linking category we've already created-->
+<!--  implied_ids is a one-to-many relational field, and contains a list of groups that will also apply to users belonging to this group-->
+
+                <!-- Admin Group-->
+ <record id="my_group_admin" model="res.groups">
+  <field name="name">Admin</field>
+  <field name="category_id"
+         ref="module_my_category"/>
+ </record>
+<!--  users field used for to make the administor and the internal root users, app managers.-->
+</odoo>
+
+
+<!--THIS MIGHT BE NOT REQUIRED BECAUSE OF THE INHERATED MODEL-->

@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+
+
+		<record id="view_candidate_filter" model="ir.ui.view">
+			 <field name="name">hr.recruitment.candidate.view.search</field>
+			 <field name="model">hr.recruitment.candidate</field>
+             <field name="arch" type="xml">
+            	<search string="Search Applicants">
+					<filter string="All" name="all" domain="['|',('active', '=', False),('active','=',True)]"/>
+					<filter string="White Collar" name="white_collar" domain="[('work_type', '=', 'whitecollar')]"/>
+					<filter string="Blue Collar" name="blue_collar" domain="[('work_type', '=', 'bluecollar')]"/>
+					<filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+					<group expand="0" string="Group By">
+						<filter string="Creation Date" name="creation_date" context="{'group_by':'create_date'}"/>
+                	</group>
+					<field name="tckn"/>
+					<field name="candidate_status"/>
+					<field name="firstname"/>
+					<field name="lastname"/>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_recruitment_candidates">
+	        <field name="name">Candidates</field>
+	        <field name="res_model">hr.recruitment.candidate</field>
+	        <field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="view_candidate_filter"/>
+	        <field name="view_id" eval="False"/>
+	        <field name="context">{'tree_view_ref':'hr_recruitment_tai.view_candidate_tree2'}</field>
+	        <field name="domain">[]</field>
+	        <field name="help" type="html">
+	          <p class="o_view_nocontent_empty_folder">
+	            No applications yet
+	          </p><p>
+	            Odoo helps you track applicants in the recruitment
+	            process and follow up all operations: meetings, interviews, etc.
+	          </p><p>
+	            Applicants and their attached CV are created automatically when an email is sent.
+	            If you install the document management modules, all resumes are indexed automatically,
+	            so that you can easily search through their content.
+	          </p>
+	        </field>
+	    </record>
+
+
+
+
+	    <record model="ir.actions.act_window" id="action_view_candidate_applications">
+	        <field name="name">Applications</field>
+	        <field name="res_model">hr.applicant</field>
+	        <field name="view_mode">kanban,tree,form,pivot,graph,activity</field>
+	        <field name="view_id" eval="False"/>
+	        <field name="context">{'default_candidate_id':active_id}</field>
+	        <field name="domain">[('candidate_id','=',active_id)]</field>
+	    </record>
+
+		<record model="ir.ui.view" id="view_candidate_form">
+			<field name="name">hr.recruitment.candidate.form</field>
+			<field name="model">hr.recruitment.candidate</field>
+			<field name="priority">10</field>
+			<field name="arch" type="xml">
+
+				<form string="Create a candidate">
+					<group>
+						<group>
+							<sheet>
+								<div class="oe_button_box" name="button_box">
+
+<!--									<button name="toggle_active" type="object"-->
+<!--											class="oe_stat_button" icon="fa-archive">-->
+<!--										<field name="active" widget="boolean_button"-->
+<!--											   options='{"terminology": "archive"}'/>-->
+<!--									</button>-->
+									<button name="action_get_attachment_tree_view" class="oe_stat_button" icon="fa-book" type="object">
+                                        <field name="attachment_number" widget="statinfo" string="Documents"/>
+                                    </button>
+									<button name="%(action_view_candidate_applications)d" type="action"
+											class="oe_stat_button" icon="fa-archive">
+										<span>Applications</span>
+									</button>
+
+								</div>
+<!--								<field name="image" widget='image' class="oe_avatar"-->
+<!--									   options='{"preview_image": "image", "size": [90, 90]}'/>-->
+								 <field name="candidate_image" widget='image' class="oe_avatar" options='{"preview_image": "candidate_image", "size": [90, 90]}'/>
+								<div class="oe_title">
+
+									<h1>
+										<h6> <field name="work_type"/>  </h6>
+										<div> <field name="firstname" default_focus="1" placeholder="First Name"/> </div>
+										<div> <field name="lastname" placeholder="Last Name"/> </div>
+									</h1>
+								</div>
+
+								<group>
+									<group>
+										<field name="tckn" attrs="{'required': [('country_id','=', 224)]}"/>
+										<field name="candidate_status"/>
+										<field name="date_birth"/>
+										<field name="location_birth"
+											   options="{'no_quick_create': True, 'no_create_edit' : True, 'no_open': True }"/>
+										<field name="gender"/>
+
+										<field name="hide" invisible="1"/>
+										<field name="country_id"
+											   options="{'no_quick_create': True, 'no_create_edit' : True, 'no_open': True}"/>
+										<field name="state_id"
+											   options="{'no_quick_create': True, 'no_create_edit' : True, 'no_open': True}"
+											   attrs="{'invisible':[('hide', '=', True)]}"/>
+
+
+<!--										<field name="email" widget="field_email"/>-->
+<!--										<field name="phone" widget="field_phone"/>-->
+										<field name="email" />
+										<field name="phone" />
+										<field name="home_address"/>
+										<field name="expected_salary_application"/>
+
+									</group>
+
+									<group>
+										<field name="summary_information"/>
+										<field name="last_apply_date"/>
+										<field name="driving_license"/>
+										<field name="classification"/>
+										<field name="judicial_status"/>
+										<field name="military_status" attrs="{'invisible':[('gender', '!=', 'man')]}"/>
+										<field name="disability_status"/>
+										<field name="disability_percentage"
+											   attrs="{'invisible':['|', ('disability_status', '=', False), ('disability_status', '=', 'Non')] , 'required':['|', ('disability_status', '=', 'Full'), ('disability_status', '=', 'Partly')] }"/>
+									</group>
+								</group>
+
+
+								<notebook>
+									<page name="experience" string="Experience">
+										<field name="experience_ids"/>
+									</page>
+
+									<page name="education" string='Education'>
+										<field name="education_ids"/>
+
+									</page>
+
+									<page name="referances" string="Referance">
+										<field name="referance_ids"/>
+									</page>
+
+									<page name="exams" string="Exam">
+										<field name="exam_ids"/>
+									</page>
+
+									<page name="knowledge" string="Knowledge">
+										<field name="knowledge_ids"/>
+									</page>
+
+									<page name="course_certification" string="Course Certification">
+										<field name="cources_ids"/>
+									</page>
+
+									<page name="enterprise_qualification_exams" string="Qualifications Exams">
+										<field name="enterprise_qualification_exams"/>
+									</page>
+
+									<page name="visitor_system_records" string="Visitors Systems Records">
+										<field name="visitor_system_record_ids"/>
+									</page>
+
+								</notebook>
+
+							</sheet>
+						</group>
+						<group>
+							<div class="oe_chatter">
+								<field name="message_follower_ids" widget="mail_followers"/>
+								<field name="activity_ids" widget="mail_activity"/>
+								<field name="message_ids" widget="mail_thread"/>
+							</div>
+						</group>
+					</group>
+				</form>
+			</field>
+		</record>
+
+
+
+        <record model="ir.ui.view" id="view_candidate_tree">
+        	<field name="name">Hr Candidate Tree</field>
+	        <field name="model">hr.recruitment.candidate</field>
+	        <field name="arch" type="xml">
+	        	<tree>
+	        		<field name="firstname"/>
+	        	</tree>
+	        </field>
+        	<field name="priority" eval="30"/>
+        </record>
+
+        <record model="ir.ui.view" id="view_candidate_tree2">
+        	<field name="name">Hr Candidate Tree</field>
+	        <field name="model">hr.recruitment.candidate</field>
+	        <field name="arch" type="xml">
+				<tree  decoration-success="work_type=='whitecollar'" decoration-bf="military_status=='completed'" >
+	        		<field name="firstname" class="column-kisa1"/>
+	        		<field name="lastname" class="column-kisa1"/>
+					<field name="tckn"  string=" Identity Number "/>
+					<field name="candidate_status"/>
+					<field name="work_type" />
+					<field name="military_status"/>
+<!--					<field name="last_experience_name"/>-->
+					<field name="last_edu_name"/>
+					<field name="phone"/>
+					<field name="date_birth"/>
+
+	        	</tree>
+	        </field>
+        	<field name="priority" eval="20"/>
+        </record>
+
+        <record model="ir.ui.view" id="hr_kanban_view_candidate">
+        <field name="name">Hr Candidate Kanban</field>
+        <field name="model">hr.recruitment.candidate</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="work_type" class="o_kanban_candidate" >
+                <field name="work_type"/>
+                <field name="active"/>
+                <field name="display_name" />
+                <field name="tckn" />
+				<field name="candidate_status"/>
+                <templates>
+
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click oe_candidate_kanban oe_semantic_html_override">
+
+                            <div class="o_dropdown_kanban dropdown">
+
+                                <a class="dropdown-toggle o-no-caret btn" role="button" data-toggle="dropdown" href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                    <span class="fa fa-ellipsis-v"/>
+                                </a>
+                                <div class="dropdown-menu" role="menu">
+                                    <t t-if="widget.deletable"><a role="menuitem" type="delete" class="dropdown-item">Delete</a></t>
+                                    <a role="menuitem" name="action_makeMeeting" type="object" class="dropdown-item">Schedule Interview</a>
+
+                                </div>
+                            </div>
+                            <div class="oe_kanban_content">
+                                <div class="o_kanban_record_top">
+                                    <div class="o_kanban_record_headings">
+                                        <b class="o_kanban_record_title mt8">
+                                            <field name="display_name"/><br/>
+                                        </b>
+                                        <div class="o_kanban_record_subtitle" >
+                                            <field name="tckn"/>
+											<field name="candidate_status"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="oe_clear"></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+
+		<record model="ir.ui.view" id="view_candidate_hrenterprisequalificationexams_form">
+	    	<field name="name">hr.recruitment.candidate.hrenterprisequalificationexams.form</field>
+	        <field name="model">hr.recruitment.candidate.hrenterprisequalificationexams</field>
+	        <field name="priority">10</field>
+	        <field name="arch" type="xml">
+	            <form>
+	                <sheet>
+	                   	<group>
+							<field name="assessment_types"/>
+							<field name="assessment_result_link" readonly="1"/>
+							<field name="tracking_number" readonly="1"/>
+							<field name="access_code" readonly="1"/>
+							<field name="access_link" readonly="1"/>
+							<field name="state" readonly="1"/>
+	                	</group>
+	                </sheet>
+	            </form>
+	        </field>
+        </record>
+
+		<record model="ir.ui.view" id="view_candidate_hrenterprisequalificationexams_tree">
+			<field name="name">hr.recruitment.candidate.hrenterprisequalificationexams.tree</field>
+			<field name="model">hr.recruitment.candidate.hrenterprisequalificationexams</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="assessment_types"/>
+					<field name="assessment_result_link"/>
+					<field name="tracking_number"/>
+					<field name="access_code"/>
+					<field name="access_link"/>
+					<field name="state"/>
+					<button string="Create Assessment" name="post_candidate_assessment" type="object" class="oe_highlight" groups="hr_recruitment_tai.group_hr_recruitment_payment" attrs="{'invisible': ['|', ('state','=','draft'), ('state','=','done')]}" />
+					<button string="Get Assessment Result" name="get_candidate_assessments_result" type="object" class="oe_highlight" groups="hr_recruitment_tai.group_hr_recruitment_payment" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+				</tree>
+			</field>
+	    </record>
+
+
+        
+		<record model="ir.ui.view" id="view_candidate_education_form">
+	    	<field name="name">hr.recruitment.candidate.education.form</field>
+	        <field name="model">hr.recruitment.candidate.education</field>
+	        <field name="priority">10</field>
+	        <field name="arch" type="xml">
+	            <form string="Create a candidate education">
+	                <sheet>
+	                   	<group>
+	                   		<field name="degree"/>
+	                   		<field name="school_id" />
+							<field name="faculty_id" />
+	                   		<field name="school_department_id"
+	                   				attrs="{'invisible':[('degree','=','highschool')],'required':[('degree','!=','highschool')]}"/>
+	                   		<label for="dates" string="Dates"/>
+	                   		<div>
+	                   			<field name="date_from" class="oe_inline"/>
+	                   			<span>-</span>
+	                   			<field name="date_to" class="oe_inline"/>
+	                   		</div>
+							<field name="graduation_score" />
+
+	                	</group>
+	                </sheet>
+	            </form>
+	        </field>
+        </record>
+
+		<record model="ir.ui.view" id="view_candidate_education_tree">
+			<field name="name">hr.recruitment.candidate.education.tree</field>
+			<field name="model">hr.recruitment.candidate.education</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Create a candidate education">
+					<field name="degree"/>
+					<field name="school_id"/>
+					<field name="school_department_id"/>
+					<field name="graduation_score"/>
+				</tree>
+			</field>
+	    </record>
+
+
+		<record model="ir.ui.view" id="view_candidate_experience_form">
+	    	<field name="name">hr.recruitment.candidate.experience.form</field>
+	        <field name="model">hr.recruitment.candidate.experience</field>
+	        <field name="priority">10</field>
+	        <field name="arch" type="xml">
+	            <form string="Create a candidate experience">
+	                <sheet>
+	                   	<group>
+							<field name="company_name"/>
+							<field name="employer"/>
+							<field name="employer_phone_number" placeholder="Employer Phone Number" />
+							<field name="position"/>
+							<field name="responsibilities"/>
+							<field name="type"/>
+							<label for="dates" string="Dates"/>
+							<div>
+	                   			<field name="date_from" class="oe_inline" placeholder="Start Date" />
+	                   			<span>-</span>
+	                   			<field name="date_to" class="oe_inline" placeholder="End Date" />
+	                   		</div>
+	                	</group>
+
+	                </sheet>
+	            </form>
+	        </field>
+        </record>
+
+		<record model="ir.ui.view" id="view_candidate_experience_tree">
+        	<field name="name">hr.recruitment.candidate.experience.tree</field>
+	        <field name="model">hr.recruitment.candidate.experience</field>
+	        <field name="arch" type="xml">
+	        	<tree>
+					<field name="employer"/>
+	        		<field name="employer_phone_number"/>
+					<field name="position"/>
+					<field name="date_from"/>
+					<field name="date_to" class="oe_inline" placeholder="End Date" />
+	        	</tree>
+	        </field>
+        	<field name="priority" eval="20"/>
+        </record>
+		<record model="ir.ui.view" id="view_candidate_course_form">
+	    	<field name="name">hr.recruitment.candidate.course.form</field>
+	        <field name="model">hr.recruitment.candidate.course</field>
+	        <field name="priority">10</field>
+	        <field name="arch" type="xml">
+	            <form string="Create Course Record">
+	                <sheet>
+	                   	<group>
+							<field name="name"/>
+							<field name="company"/>
+							<field name="date" />
+	                	</group>
+	                </sheet>
+	            </form>
+	        </field>
+        </record>
+
+		<record model="ir.ui.view" id="view_candidate_referance_form">
+	    	<field name="name">hr.recruitment.candidate.referance.form</field>
+	        <field name="model">hr.recruitment.candidate.referance</field>
+	        <field name="priority">10</field>
+	        <field name="arch" type="xml">
+	            <form string="Create a candidate referance">
+	                <sheet>
+	                   	<group>
+							<group>
+								<field name="name"/>
+								<field name="surname"/>
+							</group>
+							<group>
+								<field name="company"/>
+								<field name="duty"/>
+								<field name="phone"/>
+								</group>
+	                	</group>
+	                </sheet>
+	            </form>
+	        </field>
+       </record>
+
+		<record model="ir.ui.view" id="view_candidate_referance_tree">
+	    	<field name="name">hr.recruitment.candidate.referance.tree</field>
+	        <field name="model">hr.recruitment.candidate.referance</field>
+	        <field name="priority">10</field>
+	        <field name="arch" type="xml">
+	            <tree string="Create a candidate experience">
+					<field name="name"/>
+					<field name="surname"/>
+					<field name="company"/>
+					<field name="duty"/>
+					<field name="phone"/>
+	            </tree>
+	        </field>
+       </record>
+
+		<record model="ir.ui.view" id="view_candidate_course_tree">
+        	<field name="name">hr.recruitment.candidate.course.tree</field>
+	        <field name="model">hr.recruitment.candidate.course</field>
+	        <field name="arch" type="xml">
+	        	<tree>
+					<field name="name"/>
+					<field name="company"/>
+					<field name="date"/>
+	        	</tree>
+	        </field>
+        	<field name="priority" eval="20"/>
+        </record>
+
+
+		<record model="ir.ui.view" id="view_candidate_exam_form">
+	    	<field name="name">hr.recruitment.candidate.exam.form</field>
+	        <field name="model">hr.recruitment.candidate.exam</field>
+	        <field name="priority">10</field>
+	        <field name="arch" type="xml">
+	            <form string="Create a candidate exam">
+	                <sheet>
+	                   	<group>
+							<field name="eng_exam_name"/>
+							<field name="eng_exam_score"/>
+							<field name="eng_exam_date"/>
+	                	</group>
+	                </sheet>
+	            </form>
+	        </field>
+       </record>
+
+		<record model="ir.ui.view" id="view_candidate_exam_tree">
+	    	<field name="name">hr.recruitment.candidate.exam.tree</field>
+	        <field name="model">hr.recruitment.candidate.exam</field>
+	        <field name="priority">10</field>
+	        <field name="arch" type="xml">
+	            <tree string="Create a candidate exam">
+						<field name="eng_exam_name"/>
+						<field name="eng_exam_score"/>
+						<field name="eng_exam_date"/>
+	            </tree>
+	        </field>
+       </record>
+	        
+	   <menuitem
+	        name="Candidates"
+	        id="menu_hr_recruitment_candidates"
+	        parent="hr_recruitment.menu_hr_recruitment_root"
+	        action="action_recruitment_candidates"
+	        sequence="33"/>
+	</data>
+
+	<record model="ir.ui.view" id="view_candidate_knowledge_form">
+		<field name="name">hr.recruitment.candidate.knowledge.form</field>
+		<field name="model">hr.recruitment.candidate.knowledge</field>
+		<field name="priority">10</field>
+		<field name="arch" type="xml">
+			<form string="Create a candidate knowledge">
+				<sheet>
+					<group>
+						<field name="name"/>
+						<field name="definition"/>
+						<field name="level"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_candidate_knowledge_tree">
+		<field name="name">hr.recruitment.candidate.knowledge.tree</field>
+		<field name="model">hr.recruitment.candidate.knowledge</field>
+		<field name="priority">10</field>
+		<field name="arch" type="xml">
+			<tree string="Create a candidate knowledge">
+				<field name="name"/>
+				<field name="definition"/>
+				<field name="level"/>
+			</tree>
+		</field>
+	</record>
+
+</odoo>

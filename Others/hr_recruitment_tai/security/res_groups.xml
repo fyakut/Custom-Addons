@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="hr_recruitment.group_hr_recruitment_user" model="res.groups">
+        <field name="name">İşe Alım</field>
+    </record>
+    
+    <record id="group_hr_ik_baskani" model="res.groups">
+        <field name="name">HR Vice President's Role</field>
+        <field name="comment">HR Vice President's Role</field>
+        <field name="category_id" ref="base.module_category_hr_recruitment"/>
+        <field name="implied_ids" eval="[(4, ref('hr_recruitment.group_hr_recruitment_manager'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+   
+   
+   <record model="ir.module.category" id="module_category_hr_recruitment_other">
+            <field name="name">Recruitment - Other</field>
+            <field name="description">HR Process, Other Roles</field>
+            <field name="sequence">12</field>
+        </record>
+        
+        
+     <record id="group_hr_birim_yoneticisi" model="res.groups">
+        <field name="name">Managers/Chiefs</field>
+        <field name="comment">Birim yöneticileri</field>
+        <field name="category_id" ref="module_category_hr_recruitment_other"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+
+    <record id="group_hr_recruitment_payment" model="res.groups">
+        <field name="name">Recruitment Payment</field>
+        <field name="comment">Recruitment Payment</field>
+        <field name="category_id" ref="module_category_hr_recruitment_other"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+    
+    <record id="group_hr_birim_baskani" model="res.groups">
+        <field name="name">Vice President</field>
+        <field name="comment">Birim yöneticileri</field>
+        <field name="category_id" ref="module_category_hr_recruitment_other"/>
+        <field name="implied_ids" eval="[(4, ref('group_hr_birim_yoneticisi'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+        
+</odoo>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+<!--	<record model="ir.rule" id="hr_recruitment_birim_baskani">-->
+<!--        <field name="name">Birim başkanı ise alim</field>-->
+<!--        <field name="model_id" ref="model_hr_applicant"/>-->
+<!--        <field name="global" eval="False"/>-->
+<!--        <field name="groups" eval="[(4, ref('hr_recruitment.group_hr_recruitment_user'))]"/>-->
+<!--        <field name="domain_force">[('department_id','in',user.recruitment_departments.ids)]</field>-->
+<!--    </record>-->
+    
+
+<!--    <record model="ir.rule" id="hr_recruitment_extended">-->
+<!--        <field name="name">işe alım tümü</field>-->
+<!--        <field name="model_id" ref="model_hr_applicant"/>-->
+<!--        <field name="global" eval="True"/>-->
+<!--        <field name="domain_force">[(1,'=',1)]</field>-->
+<!--        <field name="groups" eval="[(4, ref('hr_recruitment.group_hr_recruitment_manager'))]"/>-->
+<!--    </record>-->
+    
+   
+        
+</odoo>

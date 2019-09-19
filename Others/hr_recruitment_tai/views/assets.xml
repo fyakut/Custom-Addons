@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+
+        <template id="assets_backend" name="mymodule css assets" inherit_id="web.assets_backend">
+
+            <xpath expr="." position="inside">
+
+                <link rel="stylesheet" href="/hr_recruitment_tai/static/src/css/iseAlimCss.css"/>
+
+                <script type="text/javascript" src="/hr_recruitment_tai/static/src/js/validation.js"/>
+<!--                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+<!--                <script src="http://code.jquery.com/jquery-1.9.0.js"></script>-->
+<!--                <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>-->
+<!--                <script src="//code.jquery.com/jquery-1.10.2.js"></script>-->
+<!--                <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>-->
+            </xpath>
+        </template>
+
+        <template id="assets_frontend" name="frontend css assets" inherit_id="web.assets_frontend">
+
+            <xpath expr="." position="inside">
+
+
+                <script type="text/javascript" src="/hr_recruitment_tai/static/src/js/override_homepage_welcome.js"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

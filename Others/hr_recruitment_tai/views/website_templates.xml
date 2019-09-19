@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+
+        <template id="footer_custom" inherit_id="website.layout" name="Footer">
+             <xpath expr="//div[@id='footer']" position="replace">
+                <div id="footer" class="oe_structure oe_structure_solo" t-ignore="true" t-if="not no_footer">
+                    <section class="s_text_block pt16 pb8">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4" id="connect">
+                                    <h5>Connect with us</h5>
+                                    <ul class="list-unstyled">
+                                        <li><a href="/contactus">Contact us</a></li>
+                                        <li><i class="fa fa-phone"/>0312-8111800</li>
+                                        <li><i class="fa fa-envelope"/>ik@tai.com.tr</li>
+                                    </ul>
+                                    <p>
+                                        <a href="http://www.facebook.com/tai" class="btn btn-sm btn-link"><i class="fa fa-2x fa-facebook-square"/></a>
+                                        <a href="http://www.twitter.com/tai" class="btn btn-sm btn-link"><i class="fa fa-2x fa-twitter"/></a>
+                                        <a href="http://www.linkedin.com/tai" class="btn btn-sm btn-link"><i class="fa fa-2x fa-linkedin"/></a>
+                                        <a href="http://www.youtube.com/tai" class="btn btn-sm btn-link"><i class="fa fa-2x fa-youtube-play"/></a>
+                                        <a href="http://www.googleplus.com/tai" class="btn btn-sm btn-link" rel="publisher"><i class="fa fa-2x fa-google-plus-square"/></a>
+                                        <a href="http://www.github.com/tai" class="btn btn-sm btn-link"><i class="fa fa-2x fa-github"/></a>
+                                        <a href="http://www.instagram.com/tai" class="btn btn-sm btn-link"><i class="fa fa-2x fa-instagram"/></a>
+                                    </p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <h5>
+                                        Turkish Aerospace
+                                        <small> - <a href="https://www.tai.com.tr">About us</a></small>
+                                    </h5>
+                                    <p>
+                                        Turkish Aerospace (TA) is the center of technology in design, development, manufacturing, integration of aerospace systems at Defence Industry.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+           </xpath>
+        </template>
+
+        <template id="index_work_type_collar" inherit_id="website_hr_recruitment.index" >
+            <xpath expr="//div[hasclass('media-body')]" position="replace">
+
+                <div class="media-body" t-att-data-publish="job.website_published and 'on' or 'off'">
+                <group>
+                    <div>
+                          <a t-attf-href="/jobs/detail/#{ slug(job) }">
+                              <span>
+                                  <h3>
+                                       <t t-esc="job.name"/>
+                                  </h3>
+
+                              </span>
+                          </a>
+                        <i class="fa fa-clock-o" title="Publication date" role="img" aria-label="Publication date"/> <span t-field="job.write_date"/>
+                    </div>
+
+                    <span t-field="job.description" />
+                    <span t-if="not job.website_published" class="badge badge-danger">unpublished</span>
+                    <br>
+                      <hr class="style1"/>
+                    </br>
+                   </group>
+
+                </div>
+
+
+            </xpath>
+        </template>
+
+
+        <template id="layout_logo_show" inherit_id="website.layout">
+            <xpath expr="//header//a[hasclass('navbar-brand')]" position="replace">
+                <a href="/" class="navbar-brand logo">
+                   <img src="/hr_recruitment_tai/static/src/img/tailogo.png"/>
+                </a>
+            </xpath>
+        </template>
+
+
+        <template id="closure_brand_promotion" inherit_id="website.brand_promotion">
+              <xpath expr="//div[hasclass('o_brand_promotion')]" position="replace">
+
+            </xpath>
+        </template>
+
+        <template id="default_page_inherit" inherit_id="website.default_page">
+              <xpath expr="//div[@id='wrap']" position="inside">
+                   <div align="center">
+                      <img src="/hr_recruitment_tai/static/src/img/hr.jpeg" style="height: 500px; width: 400px;"/>
+                   </div>
+            </xpath>
+        </template>
+
+        <template id="application_success">
+            <t t-call="website.layout">
+
+                <div id="wrap">
+
+
+                    <section class="mt32 mb32">
+                        <div class="text-center">
+                            <span>Thanks for applying <t t-esc="application.job_id.name"/></span>
+                        </div>
+                    </section>
+                </div>
+
+            </t>
+        </template>
+
+        <template id="application_fail">
+            <t t-call="website.layout">
+
+                <div id="wrap">
+
+                    <section class="mt32 mb32">
+                        <div class="text-center">
+                            <span>Your application is not appropriate. Reasons:</span>
+                            <ul>
+                                <li t-foreach="reasons" t-as="reason">
+                                    <span t-if="reason==1">Country missing!</span>
+                                    <span t-if="reason==2">Education missing!</span>
+                                    <span t-if="reason==3">No Resume</span>
+                                </li>
+                            </ul>
+                            <div >
+<!--                                <a role="button" href="/my/resume" class="btn btn-primary btn-lg  mt32 mb4">Edit your resume!</a>-->
+                                 <span t-if="reason!=3">
+                                        <a role="button" href="/my/resume" class="btn btn-primary btn-lg  mt32 mb4">Create resume!</a>
+                                 </span>
+                                 <span t-if="reason==3">
+                                        <a role="button" href="/my/resume" class="btn btn-primary btn-lg  mt32 mb4">Edit your resume!</a>
+                                 </span>
+                            </div>
+
+                        </div>
+                    </section>
+                </div>
+
+            </t>
+        </template>
+
+        <template id="application_withdraw">
+            <t t-call="website.layout">
+
+                <div id="wrap">
+
+                    <section class="mt32 mb32">
+                        <div class="text-center">
+                            <span>You have succesfully withdrawn your application!</span>
+
+                        </div>
+                        <div class="text-center">
+                            <span>Please visit</span>
+                            <a t-attf-href="/jobs/detail/#{ slug(application.job_id) }">
+                                <span t-field="application.job_id.name"/>
+                            </a>
+                            <span t-field="application.job_id.date_end"/>
+                            <span> to reapply.</span>
+                        </div>
+                    </section>
+                </div>
+
+            </t>
+        </template>
+
+    </data>
+</odoo>

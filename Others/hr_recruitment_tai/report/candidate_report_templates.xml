@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="report_candidate_cv_document">
+    <t t-call="web.external_layout">
+        
+        <div class="page">
+          	<img t-field="doc.image"/>
+        </div>
+    </t>
+</template>
+
+
+<template id="report_candidate_cv">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="doc">
+            <t t-call="hr_recruitment_tai.report_candidate_cv_document"/>
+        </t>
+    </t>
+</template>
+
+
+
+</odoo>

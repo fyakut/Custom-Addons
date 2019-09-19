@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		 <record id="hr_applicant_view_search_inherit_include_archived" model="ir.ui.view">
+	        <field name="name">hr.applicant.search.inherit.include_archived</field>
+	        <field name="model">hr.applicant</field>
+	        <field name="priority">35</field>
+	        <field name="inherit_id" ref="hr_recruitment.view_crm_case_jobs_filter"/>
+	        <field name="arch" type="xml">
+				<field name="stage_id" position="after">
+					<field name="work_type"/>
+				</field>
+	            <filter name="in_progress" position="after">
+	            	<filter string="All" name="all" domain="['|',('active', '=', False),('active','=',True)]"/>
+					<filter string="White Collar" name="white_collar" domain="[('work_type', '=', 'whitecollar')]"/>
+					<filter string="Blue Collar" name="blue_collar" domain="[('work_type', '=', 'bluecollar')]"/>
+	            </filter>
+
+	        </field>
+	    </record>
+
+
+         <record model="ir.actions.act_window" id="action_applicant_interviews">
+	        <field name="name">Interviews</field>
+	        <field name="res_model">hr.interview</field>
+	        <field name="view_mode">kanban,tree,form,pivot,graph,activity</field>
+	        <field name="view_id" eval="False"/>
+	        <field name="context">{'default_applicant_id':active_id}</field>
+	        <field name="domain">[('applicant_id','=',active_id)]</field>
+	    </record>
+
+		<record model="ir.ui.view" id="applicant_form">
+			<field name="name">Applicants</field>
+			<field name="model">hr.applicant</field>
+			<field name="arch" type="xml">
+
+
+                <form string="Jobs - Recruitment Form">
+                    <header>
+                        <button string="Create Employee" name="create_employee_from_applicant" type="object" class="oe_highlight" groups="hr_recruitment_tai.group_hr_recruitment_payment"/>
+                        <button string="Next" name="action_next_stage" type="object" class="oe_highlight" attrs="{'invisible': ['|',('next_action_enabled','=',False),('active', '=', False)]}"/>
+                        <button string="Refuse" name="archive_applicant" type="object"  attrs="{'invisible': [('active', '=', False)]}"/>
+                        <button string="Terminate Process" name="terminate_applicant" type="object"  attrs="{'invisible': [('active', '=', False)]}" groups="hr_recruitment.group_hr_recruitment_user"/>
+                        <button string="Reopen Application" name="reset_applicant" type="object" attrs="{'invisible': [('active', '=', True)]}" groups="hr_recruitment.group_hr_recruitment_user"/>
+                        <field name="next_action_enabled" invisible="True"/>
+                         <field name="active" invisible="1" />
+                        <field name="stage_id" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}" attrs="{'invisible': [('active', '=', False)]}"/>
+                    </header>
+
+                    <group>
+                        <group>
+                            <sheet>
+                                <div class="oe_button_box" name="button_box">
+                                    <button name="action_makeMeeting" class="oe_stat_button" icon="fa-calendar" type="object" help="Schedule interview with this applicant">
+                                        <div class="o_field_widget o_stat_info">
+                                            <span class="o_stat_text">Meetings</span>
+                                        </div>
+                                    </button>
+                                    <button name="action_get_attachment_tree_view" class="oe_stat_button" icon="fa-book" type="object">
+                                        <field name="attachment_number" widget="statinfo" string="Documents"/>
+                                    </button>
+<!--                                    <button name="action_get_created_employee" class="oe_stat_button" icon="fa-user" type="object">-->
+<!--                                        <field name="employee_name" widget="statinfo" string="Employee"/>-->
+<!--                                    </button>-->
+                                    <button name="%(action_applicant_interviews)d" type="action"
+                                            class="oe_stat_button" icon="fa-archive"
+                                            context="{'default_interviewer_id':active_id}">
+                                        <span>Interviews</span>
+                                    </button>
+                                </div>
+                                <field name="legend_normal" invisible="1"/>
+                                <field name="legend_blocked" invisible="1"/>
+                                <field name="legend_done" invisible="1"/>
+                                <field name="candidate_image" widget='image' class="oe_avatar" options='{"preview_image": "candidate_image", "size": [90, 90]}'/>
+                                <div class="oe_title">
+                                    <h1><field name="candidate_id" readonly="1"/></h1>
+                                    <h2 class="o_row">
+                                        <div>
+                                            <group >
+                                                <field name="categ_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}"/>
+                                                <field name="state"/>
+                                            </group >
+                                        </div>
+                                    </h2>
+                                </div>
+
+                                <group string="General Information">
+                                    <group >
+                                         <field name="job_id"/>
+                                         <field name="department_id"/>
+                                        <field name="user_id"/>
+
+                                    </group>
+                                    <group>
+                                        <field name="priority" widget="priority"/>
+                                        <field name="reference"/>
+                                        <field name="company_id" groups="base.group_multi_company" options="{&quot;no_open&quot;:True}"/>
+                                        <field name="work_type"/>
+                                    </group>
+
+                                </group>
+
+                                 <group string="Filled By Department">
+                                    <group >
+                                        <field name="joining_type"/>
+                                        <field name="job_title_advised_by_department" />
+                                        <field name="job_title_level_advised_by_department" />
+                                        <field name="lunch_time"/>
+                                        <field name="job_definition"/>
+                                    </group>
+                                    <group>
+                                        <field name="employee_needed_date"/>
+                                        <field name="project"/>
+                                        <field name="working_place"/>
+                                        <field name="work_environment_is_danger"/>
+                                    </group>
+
+                                     <h3>  <label class="col-form-label" for="guide_person">Guide</label>  </h3>
+                                     <field name="guide_person" String="Guide"/>
+
+                                </group>
+
+
+
+
+
+                                 <group string="Filled by HR" groups="hr_recruitment_tai.group_hr_recruitment_payment" >
+                                    <group>
+                                          <field name="join_to_company_date"/>
+                                          <field name="job_title_advised_by_hr"/>
+                                          <field name="job_title_level_advised_by_hr"/>
+                                          <field name="job_title_level_comments"/>
+                                    </group>
+                                    <group>
+                                          <field name="salary_degree"/>
+                                          <field name="salary_level"/>
+                                          <field name="salary"/>
+                                          <field name="salary_raise"/>
+                                          <field name="salary_definition_date"/>
+                                    </group>
+
+                                </group>
+
+                                <separator string="Application Summary"/>
+                                <field name="description" placeholder="Feedback of interviews..."/>
+                            </sheet>
+                        </group>
+
+                        <group>
+                            <div class="oe_chatter">
+                                <field name="message_follower_ids" widget="mail_followers"/>
+                                <field name="activity_ids" widget="mail_activity"/>
+                                <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                            </div>
+                        </group>
+                    </group>
+
+                </form>
+
+			</field>
+		</record>
+
+	    
+
+
+
+		<record model="ir.ui.view" id="view_candidate_knowledge_form">
+			<field name="name">hr.recruitment.candidate.knowledge.form</field>
+			<field name="model">hr.recruitment.candidate.knowledge</field>
+			<field name="priority">10</field>
+			<field name="arch" type="xml">
+				<form string="Create a candidate knowledge">
+					<sheet>
+						<group>
+							<field name="name"/>
+							<field name="definition"/>
+							<field name="level"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+
+
+       <record id="hr_kanban_view_applicant_inherit_date_last_stage_update" model="ir.ui.view">
+        <field name="name">hr.applicants.kanban.inherit_date_last_stage_update</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_kanban_view_applicant"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_kanban_content')]" position="replace">
+
+                    <div class="o_kanban_record_top">
+                                    <div class="o_kanban_record_headings">
+                                        <field name="candidate_id"/>
+                                        <div class="o_kanban_record_subtitle" invisible="context.get('search_default_job_id', False)">
+                                            <field name="job_id"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <field name="categ_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+<!--                                <t t-if="record.partner_mobile.raw_value"><i class="fa fa-mobile mr4" role="img" aria-label="Mobile" title="Mobile"/><field name="partner_mobile"/><br/></t>-->
+                                <div class="o_kanban_record_bottom mt4">
+                                    <div class="oe_kanban_bottom_left">
+                                        <div class="float-left mr4" groups="base.group_user">
+                                            <field name="priority" widget="priority"/>
+                                        </div>
+                                        <div class="o_kanban_inline_block mr8">
+                                            <field name="activity_ids" widget="kanban_activity"/>
+                                        </div>
+                                        <t t-if="record.message_needaction_counter.raw_value">
+                                            <span role="alert" class='oe_kanban_mail_new mr4' title='Unread Messages'><i class='fa fa-comments' role="img" aria-label="Unread messages"/><t t-raw="record.message_needaction_counter.raw_value"/></span>
+                                        </t>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <a name="action_get_attachment_tree_view" type="object">
+                                            <span title='Documents'><i class='fa fa-book' role="img" aria-label="Documents"/>
+                                                <t t-esc="record.attachment_number.raw_value"/>
+                                            </span>
+                                        </a>
+                                        <div class="o_kanban_state_with_padding">
+                                            <field name="kanban_state" widget="kanban_state_selection"/>
+                                            <field name="legend_normal" invisible="1"/>
+                                            <field name="legend_blocked" invisible="1"/>
+                                            <field name="legend_done" invisible="1"/>
+                                        </div>
+                                        <img t-att-src="kanban_image('res.users', 'image_small', record.user_id.raw_value)" t-att-title="record.user_id.value" t-att-alt="record.user_id.value" width="30" height="30" class="oe_kanban_avatar"/>
+                                    </div>
+
+                                </div>
+                             <label class="col-form-label" for="city">Stage Change Date</label>
+                            <field name="date_last_stage_update"/>
+            </xpath>
+        </field>
+    </record>
+
+
+	    
+	    
+	</data>
+
+</odoo>

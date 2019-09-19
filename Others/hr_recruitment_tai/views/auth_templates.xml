@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+
+        <template id="fields" inherit_id="auth_signup.fields" name="Password policy data for auth_signup">
+
+            <xpath expr="//div[hasclass('field-login')]" position="before">
+
+                 <div class="form-group">
+                    <input type="checkbox" name="tckn_chbx" id="tckn_chbx"/>
+                    <label class="col-form-label" for="tckn_chbx">Turkish Citizen</label>
+                 </div>
+
+                <div class="form-group">
+                    <label for="tckn">Tckn</label>
+                    <input type="number" name="tckn" t-att-value="tckn" id="tckn" class="form-control form-control-sm" autofocus="autofocus" autocapitalize="off"/>
+                </div>
+
+            </xpath>
+
+            <xpath expr="//div[hasclass('field-password')]" position="before">
+
+                <div class="form-group">
+                    <label for="birthdate">Birth Date</label>
+                    <input type="date" name="birthdate" t-att-value="birthdate" id="birthdate" class="form-control form-control-sm" autofocus="autofocus" autocapitalize="off" required="required"/>
+                </div>
+
+            </xpath>
+
+        </template>
+
+    </data>
+</odoo>
+

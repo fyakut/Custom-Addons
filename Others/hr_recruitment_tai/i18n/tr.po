@@ -1,0 +1,2067 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_recruitment_tai
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-13 07:55+0000\n"
+"PO-Revision-Date: 2019-06-13 07:55+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_recruitment_tai
+#: code:addons/hr_recruitment_tai/models/hr_applicant.py:33
+#, python-format
+msgid "%s asamasina ilerletemezsiniz"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:mail.template,body_html:hr_recruitment_tai.email_template_notify_applicant
+msgid "<div style=\"margin: 0px; padding: 0px;\">\n"
+"   ${object.name} başvurusu işlem yapmanızı bekliyor.\n"
+"   \n"
+"</div>\n"
+"            "
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.footer_custom
+msgid "<i class=\"fa fa-envelope\"/>ik@tai.com.tr"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.footer_custom
+msgid "<i class=\"fa fa-phone\"/>0312-8111800"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.applicant_form
+msgid "<span class=\"o_stat_text\">Meetings</span>"
+msgstr "<span class=\"o_stat_text\">Toplantılar</span>"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_interview_form
+msgid "<span class=\"oe_inline\"> between</span>"
+msgstr "<span class=\"oe_inline\"> arasında</span>"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_form
+msgid "<span>Applications</span>"
+msgstr "Başvurular"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.applicant_form
+msgid "<span>Interviews</span>"
+msgstr "Görüşmeler"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.footer_custom
+msgid "About us"
+msgstr "Hakkımızda"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__message_needaction
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__message_needaction
+msgid "Action Needed"
+msgstr "Aksiyon Gerekli"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__active
+msgid "Active"
+msgstr "Aktif"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__activity_ids
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__activity_ids
+msgid "Activities"
+msgstr "Aktiviteler"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__activity_state
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__activity_state
+msgid "Activity State"
+msgstr "Aktivite Durumu"
+
+#. module: hr_recruitment_tai
+#: model:mail.template,subject:hr_recruitment_tai.email_template_notify_applicant
+msgid "Aday Durum Güncelleme Bildirimi"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__additional_info
+msgid "Additional info"
+msgstr "Ek bilgi"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__type
+msgid "Address Type"
+msgstr "Adres Tipi"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.hr_applicant_view_search_inherit_include_archived
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_filter
+msgid "All"
+msgstr "Hepsi"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_recruitment_candidate__lang
+msgid "All the emails and documents sent to this contact will be translated in this language."
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model,name:hr_recruitment_tai.model_hr_applicant
+msgid "Applicant"
+msgstr "Başvuran"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.actions.act_window,help:hr_recruitment_tai.crm_case_categ0_act_job_all
+msgid "Applicants and their attached CV are created automatically when an email is sent.\n"
+"				If you install the document management modules, all resumes are indexed automatically,\n"
+"				so that you can easily search through their content."
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.actions.act_window,help:hr_recruitment_tai.action_recruitment_candidates
+msgid "Applicants and their attached CV are created automatically when an email is sent.\n"
+"	            If you install the document management modules, all resumes are indexed automatically,\n"
+"	            so that you can easily search through their content."
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.actions.act_window,help:hr_recruitment_tai.action_tai_recruitment_other_applicants
+msgid "Applicants and their attached CV are created automatically when an email is sent.\n"
+"            If you install the document management modules, all resumes are indexed automatically,\n"
+"            so that you can easily search through their content."
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__applicant_id
+msgid "Application"
+msgstr "Başvuru"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.applicant_form
+msgid "Application Summary"
+msgstr "Başvuru Özeti "
+
+#. module: hr_recruitment_tai
+#: model:ir.actions.act_window,name:hr_recruitment_tai.action_tai_recruitment_other_applicants
+#: model:ir.actions.act_window,name:hr_recruitment_tai.action_view_candidate_applications
+#: model:ir.actions.act_window,name:hr_recruitment_tai.crm_case_categ0_act_app_ik
+#: model:ir.actions.act_window,name:hr_recruitment_tai.crm_case_categ0_act_job_all
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_res_users__application_ids
+msgid "Applications"
+msgstr "Başvurular"
+
+#. module: hr_recruitment_tai
+#: model:ir.actions.act_window,name:hr_recruitment_tai.action_applications_birim_baskani
+#: model:ir.ui.menu,name:hr_recruitment_tai.menu_applications_birim_baskani
+msgid "Applications - Birim Başkanı"
+msgstr "Başvurular - Birim Başkanı"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_filter
+msgid "Archived"
+msgstr "Arşivlenmiş"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__message_attachment_count
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__message_attachment_count
+msgid "Attachment Count"
+msgstr "Dosya Sayısı"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview_interviewer__attanded
+msgid "Attended"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__bank_ids
+msgid "Banks"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__barcode
+msgid "Barcode"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:res.groups,name:hr_recruitment_tai.group_hr_birim_baskani
+msgid "Vice President"
+msgstr "Birim Başkanı"
+
+#. module: hr_recruitment_tai
+#: model:res.groups,name:hr_recruitment_tai.group_hr_birim_yoneticisi
+msgid "Manager/Chief"
+msgstr "Birim Yöneticisi"
+
+#. module: hr_recruitment_tai
+#: model:res.groups,comment:hr_recruitment_tai.group_hr_birim_baskani
+#: model:res.groups,comment:hr_recruitment_tai.group_hr_birim_yoneticisi
+msgid "Managers/Chiefs"
+msgstr "Birim yöneticileri"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__location_birth
+msgid "Birth Location"
+msgstr "Doğum Yeri"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__is_blacklisted
+msgid "Blacklist"
+msgstr "Kara Liste"
+
+#. module: hr_recruitment_tai
+#: model:hr.recruitment.stage,legend_blocked:hr_recruitment_tai.form_girisi
+#: model:hr.recruitment.stage,legend_blocked:hr_recruitment_tai.ik_baskani
+#: model:hr.recruitment.stage,legend_blocked:hr_recruitment_tai.ise_alim_grubu
+#: model:hr.recruitment.stage,legend_blocked:hr_recruitment_tai.ise_alim_muduru
+#: model:hr.recruitment.stage,legend_blocked:hr_recruitment_tai.ise_alim_sefi
+#: model:hr.recruitment.stage,legend_blocked:hr_recruitment_tai.on_degerlendirme
+#: model:hr.recruitment.stage,legend_blocked:hr_recruitment_tai.on_onay
+#: model:hr.recruitment.stage,legend_blocked:hr_recruitment_tai.son_onay
+#: model:hr.recruitment.stage,legend_blocked:hr_recruitment_tai.teknik_degerlendirme
+msgid "Blocked"
+msgstr "Engellenmiş"
+
+#. module: hr_recruitment_tai
+#: selection:hr.recruitment.candidate,work_type:0
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.hr_applicant_view_search_inherit_include_archived
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_filter
+msgid "Blue Collar"
+msgstr "Mavi Yaka"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__message_bounce
+msgid "Bounce"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: code:addons/hr_recruitment_tai/models/hr_applicant.py:35
+#, python-format
+msgid "You are not authorized at this stage."
+msgstr "Bu aşamada yetkiniz yoktur"
+
+#. module: hr_recruitment_tai
+#: model:ir.actions.report,name:hr_recruitment_tai.action_report_candidate_cv
+msgid "CV"
+msgstr "Özgeçmiş"
+
+#. module: hr_recruitment_tai
+#: selection:hr.interview,state:0
+msgid "Cancel"
+msgstr "İptal Et"
+
+#. module: hr_recruitment_tai
+#: model:ir.model,name:hr_recruitment_tai.model_hr_recruitment_candidate
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_applicant__candidate_id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_course__candidate_id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_education__candidate_id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_exam__candidate_id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_experience__candidate_id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_knowledge__candidate_id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_referance__candidate_id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_res_users__candidate_id
+msgid "Candidate"
+msgstr "Aday"
+
+#. module: hr_recruitment_tai
+#: model:ir.actions.act_window,name:hr_recruitment_tai.action_recruitment_candidates
+#: model:ir.ui.menu,name:hr_recruitment_tai.menu_hr_recruitment_other_applications
+msgid "Candidates"
+msgstr "Adaylar"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__channel_ids
+msgid "Channels"
+msgstr "Kanallar"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_recruitment_candidate__is_company
+msgid "Check if the contact is a company, otherwise it is a person"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_recruitment_candidate__customer
+msgid "Check this box if this contact is a customer. It can be selected in sales orders."
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_recruitment_candidate__supplier
+msgid "Check this box if this contact is a vendor. It can be selected in purchase orders."
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_recruitment_candidate__employee
+msgid "Check this box if this contact is an Employee."
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__city
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.portal_my_resume
+msgid "City"
+msgstr "Şehir"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__classification
+msgid "Classification"
+msgstr "Klasör"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__color
+msgid "Color Index"
+msgstr "Renklendirme"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview_interviewer__comments
+msgid "Comments"
+msgstr "Yorumlar"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__commercial_partner_id
+msgid "Commercial Entity"
+msgstr "Ticari İşletme"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__company_id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_referance__company
+msgid "Company"
+msgstr "Firma"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__company_name
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_experience__company_name
+msgid "Company Name"
+msgstr "Firma Adı"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__commercial_company_name
+msgid "Company Name Entity"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__company_type
+msgid "Company Type"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__partner_gid
+msgid "Company database ID"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__contact_address
+msgid "Complete Address"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: selection:hr.recruitment.candidate,military_status:0
+msgid "Completed"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.portal_my_resume
+msgid "Confirm\n"
+"                                    <span class=\"fa fa-long-arrow-right\"/>"
+msgstr "Onayla\n"
+"                                    <span class=\"fa fa-long-arrow-right\"/>"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.footer_custom
+msgid "Connect with us"
+msgstr "Bize Ulaşın"
+
+#. module: hr_recruitment_tai
+#: model:ir.model,name:hr_recruitment_tai.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.footer_custom
+msgid "Contact us"
+msgstr "Bize Ulaşın"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__child_ids
+msgid "Contacts"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_recruitment_candidate__message_bounce
+msgid "Counter of the number of bounced emails for this contact"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__country_id
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.portal_my_resume
+msgid "Country"
+msgstr "Ülke"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.portal_my_resume
+msgid "Country..."
+msgstr "Ülke..."
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__cources_ids
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_course__name
+msgid "Course"
+msgstr "Eğitim/Kurs"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_form
+msgid "Course Certification"
+msgstr "Sertifika"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_course__company
+msgid "Course Company"
+msgstr "Kurum"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_course__date
+msgid "Course Date"
+msgstr "Eğitim Tarihi"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_course_form
+msgid "Create Course Record"
+msgstr "Eğitim Kaydı Oluştur"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.applicant_form
+msgid "Create Employee"
+msgstr "Personel Oluştur"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_form
+msgid "Create a candidate"
+msgstr "Aday Oluştur"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_education_form
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_education_tree
+msgid "Create a candidate education"
+msgstr "Eğitim Bilgisi Ekle"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_exam_form
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_exam_tree
+msgid "Create a candidate exam"
+msgstr "Sınav Bilgisi Ekle"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_experience_form
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_referance_tree
+msgid "Create a candidate experience"
+msgstr "Tecrübe Bilgisi Ekle"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_knowledge_form
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_knowledge_tree
+msgid "Create a candidate knowledge"
+msgstr "Uzmanlık Bilgisi Ekle"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_referance_form
+msgid "Create a candidate referance"
+msgstr "Referans Ekle"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_interview_form
+msgid "Create a interview"
+msgstr "Görüşme Planla"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__create_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview_interviewer__create_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview_interviewer_form__create_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__create_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_course__create_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_degree__create_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_department__create_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_education__create_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_exam__create_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_experience__create_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_knowledge__create_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_referance__create_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_school__create_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_exam__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__create_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview_interviewer__create_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview_interviewer_form__create_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__create_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_course__create_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_degree__create_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_department__create_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_education__create_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_exam__create_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_experience__create_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_knowledge__create_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_referance__create_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_school__create_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_exam__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_filter
+msgid "Creation Date"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__credit_limit
+msgid "Credit Limit"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__currency_id
+msgid "Currency"
+msgstr "Para Birimi"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__date
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_interview_form
+msgid "Date"
+msgstr "Tarih"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_job__date_start
+msgid "Date the job posting starts"
+msgstr "İlanın yayınlandığı tarih"
+
+#. module: hr_recruitment_tai
+#: code:addons/hr_recruitment_tai/models/hr_job.py:22
+#, python-format
+msgid "Date validation error"
+msgstr "Tarih Formatı Hatası"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_education_form
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_experience_form
+msgid "Dates"
+msgstr "Tarihler"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_degree__name
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_education__degree
+msgid "Degree"
+msgstr "Eğitim Durumu"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.hr_kanban_view_candidate
+msgid "Delete"
+msgstr "Sil"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_department__name
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_education__school_department_id
+msgid "Department"
+msgstr "Bölüm"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__disability_percentage
+msgid "Disability Percentage"
+msgstr "Engellilik Yüzdesi"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__disability_status
+msgid "Disability Status"
+msgstr "Engellilik Durumu"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__display_name
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview_interviewer__display_name
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview_interviewer_form__display_name
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__display_name
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_course__display_name
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_degree__display_name
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_department__display_name
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_education__display_name
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_exam__display_name
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_experience__display_name
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_knowledge__display_name
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_referance__display_name
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_school__display_name
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_exam__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: selection:hr.recruitment.candidate,marriage_status:0
+msgid "Divorced"
+msgstr "Boşanmış"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.applicant_form
+msgid "Documents"
+msgstr "Dosyalar"
+
+#. module: hr_recruitment_tai
+#: selection:hr.interview,activity_state:1
+#: selection:hr.interview,state:1
+#: selection:hr.interview.interviewer.form,state:1
+msgid "Done"
+msgstr "Tamamlanmış"
+
+
+#. module: hr_recruitment_tai
+#: selection:hr.interview,state:0
+#: selection:hr.interview.interviewer.form,state:0
+msgid "Draft"
+msgstr "Taslak"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__driving_license
+msgid "Driving License"
+msgstr "Sürücü Belgesi"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.hr_kanban_view_candidate
+msgid "Dropdown menu"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_referance__duty
+msgid "Duty"
+msgstr "Görevi"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__education_ids
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_form
+msgid "Education"
+msgstr "Eğitim"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_recruitment_candidate__partner_share
+msgid "Either customer (not a user), either shared user. Indicated the current partner is a customer without access or with a limited access created for sharing data."
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__email
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.portal_my_resume
+msgid "Email"
+msgstr "E-posta"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__employee
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.applicant_form
+msgid "Employee"
+msgstr "Personel"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_experience__employer
+msgid "Employer"
+msgstr "İşveren"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_experience_form
+msgid "Employer Phone Number"
+msgstr "İşveren Telefon Numarası"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_education__date_to
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_experience__date_to
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_experience_form
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_experience_tree
+msgid "End Date"
+msgstr "Bitiş Tarihi"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_job__date_end
+msgid "End date"
+msgstr "Bitiş Tarihi"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__date_end
+msgid "Ends at"
+msgstr "Bitiş Tarihi"
+
+#. module: hr_recruitment_tai
+#: model:ir.model,name:hr_recruitment_tai.model_hr_recruitment_exam
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__exam_ids
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_exam__name
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_form
+msgid "Exam"
+msgstr "Sınav"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_exam__date
+msgid "Exam Date"
+msgstr "Sınav Tarihi"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_exam__degree
+msgid "Exam Degree"
+msgstr "Sınav Notu"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_exam__name
+msgid "Exam Name"
+msgstr "Sınav Adı"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__expected_salary
+msgid "Expected Salary"
+msgstr "Maaş Beklentisi"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__experience_ids
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_form
+msgid "Experience"
+msgstr "Deneyim"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.applicant_form
+msgid "Feedback of interviews..."
+msgstr "Görüşme yorumu..."
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_form
+msgid "First Name"
+msgstr "Adınız"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__firstname
+msgid "First name"
+msgstr "Adınız"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__message_follower_ids
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__message_follower_ids
+msgid "Followers"
+msgstr "İlgililer"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__message_channel_ids
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "İlgililer (Kanallar)"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__message_partner_ids
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "İlgililer (Partnerler)"
+
+#. module: hr_recruitment_tai
+#: model:hr.recruitment.stage,name:hr_recruitment_tai.form_girisi
+msgid "Create Form"
+msgstr "Form Girişi"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview_interviewer_form__form_type
+msgid "Form Type"
+msgstr "Form Tipi"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_recruitment_candidate__email_formatted
+msgid "Format email address \"Name <email@domain>\""
+msgstr "E-posta adresi formatı "
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__email_formatted
+msgid "Formatted Email"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: selection:hr.recruitment.candidate,disability_status:0
+msgid "Full Disable"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: selection:hr.recruitment.candidate.experience,type:0
+msgid "Full Time"
+msgstr "Tam Zamanlı"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__gender
+msgid "Gender"
+msgstr "Cinsiyet"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_education__graduation_score
+msgid "Graduation Score"
+msgstr "Mezuniyet Notu"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_filter
+msgid "Group By"
+msgstr "Grupla"
+
+#. module: hr_recruitment_tai
+#: selection:hr.interview,interview__type:0
+msgid "HR"
+msgstr "İK"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__hide
+msgid "Hide"
+msgstr "Gizle"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__home_address
+msgid "Home Address "
+msgstr "Ev Adresi"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview_interviewer__id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview_interviewer_form__id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_course__id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_degree__id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_department__id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_education__id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_exam__id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_experience__id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_knowledge__id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_referance__id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_school__id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_exam__id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_recruitment_tai
+#: model:ir.module.category,description:hr_recruitment_tai.module_category_hr_recruitment_other
+msgid "HR Process, Other Roles"
+msgstr "IK süreçleri IK dışı roller."
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__im_status
+msgid "IM Status"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_interview__message_unread
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_recruitment_candidate__message_unread
+msgid "If checked new messages require your attention."
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_interview__message_needaction
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_recruitment_candidate__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_interview__message_has_error
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_recruitment_candidate__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_recruitment_candidate__is_blacklisted
+msgid "If the email address is on the blacklist, the contact won't receive mass mailing anymore, from any list"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__image
+msgid "Image"
+msgstr "Fotoğraf"
+
+#. module: hr_recruitment_tai
+#: model:hr.recruitment.stage,legend_normal:hr_recruitment_tai.form_girisi
+#: model:hr.recruitment.stage,legend_normal:hr_recruitment_tai.ik_baskani
+#: model:hr.recruitment.stage,legend_normal:hr_recruitment_tai.ise_alim_grubu
+#: model:hr.recruitment.stage,legend_normal:hr_recruitment_tai.ise_alim_muduru
+#: model:hr.recruitment.stage,legend_normal:hr_recruitment_tai.ise_alim_sefi
+#: model:hr.recruitment.stage,legend_normal:hr_recruitment_tai.on_degerlendirme
+#: model:hr.recruitment.stage,legend_normal:hr_recruitment_tai.on_onay
+#: model:hr.recruitment.stage,legend_normal:hr_recruitment_tai.son_onay
+#: model:hr.recruitment.stage,legend_normal:hr_recruitment_tai.teknik_degerlendirme
+msgid "In Progress"
+msgstr "İşlemde"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__industry_id
+msgid "Industry"
+msgstr "Endüstri"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__ref
+msgid "Internal Reference"
+msgstr "Şirket İçi Referans"
+
+#. module: hr_recruitment_tai
+#: selection:hr.recruitment.candidate.experience,type:0
+msgid "Internship"
+msgstr "Staj"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview_interviewer__interview_id
+msgid "Interview"
+msgstr "Görüşme"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview_interviewer__form_ids
+msgid "Interview Forms"
+msgstr "Görüşme Formları"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview_interviewer__user_id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview_interviewer_form__interviewer_id
+msgid "Interviewer"
+msgstr "Görüşmeci"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__interviewer_ids
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_interview_form
+msgid "Interviewers"
+msgstr "Görüşmeciler"
+
+#. module: hr_recruitment_tai
+#: model:ir.actions.act_window,name:hr_recruitment_tai.action_applicant_interviews
+#: model:ir.actions.act_window,name:hr_recruitment_tai.action_hr_interviews
+#: model:ir.ui.menu,name:hr_recruitment_tai.menu_hr_interview
+msgid "Interviews"
+msgstr "Görüşmeler"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__is_candidate
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_res_partner__is_candidate
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_res_users__is_candidate
+msgid "Is Candidate"
+msgstr "Aday mı?"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__message_is_follower
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__message_is_follower
+msgid "Is Follower"
+msgstr "İlgili mi?"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__is_company
+msgid "Is a Company"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__customer
+msgid "Is a Customer"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__supplier
+msgid "Is a Vendor"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__is_published
+msgid "Is published"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.applicant_form
+msgid "Job"
+msgstr "İlan"
+
+#. module: hr_recruitment_tai
+#: model:ir.model,name:hr_recruitment_tai.model_hr_job
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__function
+msgid "Job Position"
+msgstr "Pozisyon"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.applicant_form
+msgid "Jobs - Recruitment Form"
+msgstr "İlanlar - İşe Alım Formu"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__judicial_status
+msgid "Judicial Status"
+msgstr "Adli Sicil Kaydı"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__knowledge_ids
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_form
+msgid "Knowledge"
+msgstr "Uzmanlık Bilgisi"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_knowledge__definition
+msgid "Knowledge Definition"
+msgstr "Uzmanlık Bilgisi Tanımı"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_knowledge__level
+msgid "Knowledge Level"
+msgstr "Uzmanlık Bilgisi Düzeyi"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_knowledge__name
+msgid "Knowledge Name"
+msgstr "Uzmanlık Bilgisi Adı"
+
+#. module: hr_recruitment_tai
+#: selection:hr.interview,interview__type:0
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__lang
+msgid "Language"
+msgstr "Dil"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__last_apply_date
+msgid "Last Apply Date"
+msgstr "Son Başvuru Tarihi"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__last_edu_name
+msgid "Last Education Name"
+msgstr "Son Eğitim"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__last_experience_name
+msgid "Last Experience Name"
+msgstr "Son Çalıştığı Yer"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview____last_update
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview_interviewer____last_update
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview_interviewer_form____last_update
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate____last_update
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_course____last_update
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_degree____last_update
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_department____last_update
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_education____last_update
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_exam____last_update
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_experience____last_update
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_knowledge____last_update
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_referance____last_update
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_school____last_update
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_exam____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_form
+msgid "Last Name"
+msgstr "Soyadınız"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__write_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview_interviewer__write_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview_interviewer_form__write_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__write_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_course__write_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_degree__write_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_department__write_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_education__write_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_exam__write_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_experience__write_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_knowledge__write_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_referance__write_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_school__write_uid
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_exam__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__write_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview_interviewer__write_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview_interviewer_form__write_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__write_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_course__write_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_degree__write_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_department__write_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_education__write_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_exam__write_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_experience__write_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_knowledge__write_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_referance__write_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_school__write_date
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_exam__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__lastname
+msgid "Last name"
+msgstr "Soyadı"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__calendar_last_notif_ack
+msgid "Last notification marked as read from base Calendar"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__message_main_attachment_id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: selection:hr.recruitment.candidate,gender:0
+msgid "Man"
+msgstr "Erkek"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__marriage_status
+msgid "Marriage Status"
+msgstr "Medeni Hal"
+
+#. module: hr_recruitment_tai
+#: selection:hr.recruitment.candidate,marriage_status:0
+msgid "Married "
+msgstr "Evli"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__image_medium
+msgid "Medium-sized image"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_recruitment_candidate__image_medium
+msgid "Medium-sized image of this contact. It is automatically resized as a 128x128px image, with aspect ratio preserved. Use this field in form views or some kanban views."
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__message_has_error
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__message_has_error
+msgid "Message Delivery error"
+msgstr "Mesaj İletim Hatası"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__message_ids
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__message_ids
+msgid "Messages"
+msgstr "Mesajlar"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__military_status
+msgid "Military Status"
+msgstr "Askerlik Durumu"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__mobile
+msgid "Mobile"
+msgstr "Cep"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__name
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_form
+msgid "Name"
+msgstr "Ad"
+
+#. module: hr_recruitment_tai
+#: selection:hr.interview.interviewer.form,state:0
+msgid "New"
+msgstr "Yeni"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__activity_date_deadline
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Sonraki Aktivite Bitiş Tarihi"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__activity_summary
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__activity_summary
+msgid "Next Activity Summary"
+msgstr "Sonraki Aktivite Özeti"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__activity_type_id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__activity_type_id
+msgid "Next Activity Type"
+msgstr "Sonraki Aktivite Tipi"
+
+#. module: hr_recruitment_tai
+#: selection:hr.recruitment.candidate,judicial_status:0
+msgid "No "
+msgstr "Yok "
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.actions.act_window,help:hr_recruitment_tai.action_recruitment_candidates
+#: model_terms:ir.actions.act_window,help:hr_recruitment_tai.action_tai_recruitment_other_applicants
+#: model_terms:ir.actions.act_window,help:hr_recruitment_tai.crm_case_categ0_act_job_all
+msgid "No applications yet"
+msgstr "Henüz Başvuru Yok"
+
+#. module: hr_recruitment_tai
+#: selection:hr.recruitment.candidate,disability_status:0
+msgid "Non Disable"
+msgstr "Yok"
+
+#. module: hr_recruitment_tai
+#: selection:hr.recruitment.candidate,gender:0
+#: selection:hr.recruitment.candidate,military_status:0
+msgid "Not Applicable"
+msgstr "Muaf"
+
+#. module: hr_recruitment_tai
+#: selection:hr.recruitment.candidate,military_status:0
+msgid "Not Completed"
+msgstr "Tamamlanmamış"
+
+#. module: hr_recruitment_tai
+#: selection:hr.recruitment.candidate,driving_license:0
+msgid "Not Have"
+msgstr "Yok"
+
+#. module: hr_recruitment_tai
+#: selection:hr.interview.interviewer,result:0
+msgid "Not Suitable"
+msgstr "Uygun Değil"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__comment
+msgid "Notes"
+msgstr "Notlar"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__message_needaction_counter
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Aksiyon Sayısı"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__message_has_error_counter
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__message_has_error_counter
+msgid "Number of error"
+msgstr "Hata Sayısı"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_interview__message_needaction_counter
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_recruitment_candidate__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_interview__message_has_error_counter
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_recruitment_candidate__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_interview__message_unread_counter
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_recruitment_candidate__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.actions.act_window,help:hr_recruitment_tai.crm_case_categ0_act_job_all
+msgid "Odoo helps you track applicants in the recruitment\n"
+"				process and follow up all operations: meetings, interviews, etc."
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.actions.act_window,help:hr_recruitment_tai.action_recruitment_candidates
+msgid "Odoo helps you track applicants in the recruitment\n"
+"	            process and follow up all operations: meetings, interviews, etc."
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.actions.act_window,help:hr_recruitment_tai.action_tai_recruitment_other_applicants
+msgid "Odoo helps you track applicants in the recruitment\n"
+"            process and follow up all operations: meetings, interviews, etc."
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: selection:hr.interview,activity_state:0
+#: selection:hr.recruitment.candidate,activity_state:0
+msgid "Overdue"
+msgstr "Süresi Geçmiş"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__parent_name
+msgid "Parent name"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: selection:hr.recruitment.candidate.experience,type:0
+msgid "Part Time"
+msgstr "Yarı Zamanlı"
+
+#. module: hr_recruitment_tai
+#: selection:hr.recruitment.candidate,disability_status:0
+msgid "Partly Disable"
+msgstr "Kısmen Engelli"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__phone
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_referance__phone
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.portal_my_resume
+msgid "Phone"
+msgstr "Telefon Numarası"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_experience__employer_phone_number
+msgid "Phone Number"
+msgstr "Telefon Numarası"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_interview_form
+msgid "Plan"
+msgstr "Planla"
+
+#. module: hr_recruitment_tai
+#: selection:hr.interview,activity_state:0
+#: selection:hr.interview,state:0
+#: selection:hr.recruitment.candidate,activity_state:0
+msgid "Planned"
+msgstr "Planlanmış"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_experience__position
+msgid "Position"
+msgstr "Pozisyon"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_degree__priority
+msgid "Priority"
+msgstr "Öncelik"
+
+#. module: hr_recruitment_tai
+#: model:hr.recruitment.stage,legend_done:hr_recruitment_tai.form_girisi
+#: model:hr.recruitment.stage,legend_done:hr_recruitment_tai.ik_baskani
+#: model:hr.recruitment.stage,legend_done:hr_recruitment_tai.ise_alim_grubu
+#: model:hr.recruitment.stage,legend_done:hr_recruitment_tai.ise_alim_muduru
+#: model:hr.recruitment.stage,legend_done:hr_recruitment_tai.ise_alim_sefi
+#: model:hr.recruitment.stage,legend_done:hr_recruitment_tai.on_degerlendirme
+#: model:hr.recruitment.stage,legend_done:hr_recruitment_tai.on_onay
+#: model:hr.recruitment.stage,legend_done:hr_recruitment_tai.son_onay
+#: model:hr.recruitment.stage,legend_done:hr_recruitment_tai.teknik_degerlendirme
+msgid "Ready for Next Stage"
+msgstr "Sonraki Aşama için Hazır"
+
+#. module: hr_recruitment_tai
+#: model:ir.ui.menu,name:hr_recruitment_tai.menu_hr_recruitment_other_root
+msgid "Recruitment"
+msgstr "İşe Alım"
+
+#. module: hr_recruitment_tai
+#: model:ir.module.category,name:hr_recruitment_tai.module_category_hr_recruitment_other
+msgid "Recruitment - Other"
+msgstr "İşe Alım - Diğer"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_res_users__recruitment_departments
+msgid "Recruitment Departments"
+msgstr "İşe Alım Bölümleri"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__referance_ids
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__visitor_system_record_ids
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_form
+msgid "Referance"
+msgstr "Referans"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_referance__name
+msgid "Referance Name"
+msgstr "Referans Adı"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_referance__surname
+msgid "Referance Surname"
+msgstr "Referans Soyadı"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.applicant_form
+msgid "Refuse"
+msgstr "İptal"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__website_id
+msgid "Registration Website"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__parent_id
+msgid "Related Company"
+msgstr "İlişkili Firma"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__partner_id
+msgid "Related Partner"
+msgstr "İlişkili Partner"
+
+#. module: hr_recruitment_tai
+#: model:ir.actions.server,name:hr_recruitment_tai.ir_cron_applicant_reminder_action_ir_actions_server
+#: model:ir.cron,cron_name:hr_recruitment_tai.ir_cron_applicant_reminder_action
+#: model:ir.cron,name:hr_recruitment_tai.ir_cron_applicant_reminder_action
+msgid "Reminder: Application Waiting Action"
+msgstr "Hatırlatma: Başvuru Aksiyon Bekliyor"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.applicant_form
+msgid "Reopen Application"
+msgstr "Başvuruyu Tekrar Aç"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_experience__responsibilities
+msgid "Responsibilities"
+msgstr "Sorummluluklar"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__responsible_id
+msgid "Responsible"
+msgstr "Sorumlu"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__activity_user_id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__activity_user_id
+msgid "Responsible User"
+msgstr "Sorumlu Kullanıcı"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview_interviewer__result
+msgid "Result"
+msgstr "Sonuç"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__is_seo_optimized
+msgid "SEO optimized"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__user_id
+msgid "Salesperson"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.hr_kanban_view_candidate
+msgid "Schedule Interview"
+msgstr "Görüşme Takvimi"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.applicant_form
+msgid "Schedule interview with this applicant"
+msgstr "Bu aday için görüşme planla"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_education__school_id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_school__degree_id
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_school__name
+msgid "School"
+msgstr "Okul"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_filter
+msgid "Search Applicants"
+msgstr "Aday Ara"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__self
+msgid "Self"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__partner_share
+msgid "Share Partner"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__signup_expiration
+msgid "Signup Expiration"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__signup_token
+msgid "Signup Token"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__signup_type
+msgid "Signup Token Type"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__signup_valid
+msgid "Signup Token is Valid"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__signup_url
+msgid "Signup URL"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: selection:hr.recruitment.candidate,marriage_status:0
+msgid "Single"
+msgstr "Bekar"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__image_small
+msgid "Small-sized image"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_recruitment_candidate__image_small
+msgid "Small-sized image of this contact. It is automatically resized as a 64x64px image, with aspect ratio preserved. Use this field anywhere a small image is required."
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:hr.recruitment.stage,name:hr_recruitment_tai.son_onay
+msgid "Last Approve"
+msgstr "Son Onay"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_education__date_from
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_experience__date_from
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_experience_form
+msgid "Start Date"
+msgstr "Başlangıç Tarihi"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_job__date_start
+msgid "Start date"
+msgstr "Başlangıç Tarihi"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__date_start
+msgid "Starts at"
+msgstr "Başlangıç Tarihi"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__state
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview_interviewer_form__state
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__state_id
+msgid "State"
+msgstr "Durum"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.portal_my_resume
+msgid "State / Province"
+msgstr "Şehir"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_interview__activity_state
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_recruitment_candidate__activity_state
+msgid "Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__street
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.portal_my_resume
+msgid "Street"
+msgstr "Sokak"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__street2
+msgid "Street2"
+msgstr "Sokak2"
+
+#. module: hr_recruitment_tai
+#: selection:hr.interview.interviewer,result:0
+msgid "Suitable"
+msgstr "Uygun"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview_interviewer__other_job_id
+msgid "Suitable for"
+msgstr "Bu pozisyon için Uygun"
+
+#. module: hr_recruitment_tai
+#: selection:hr.interview.interviewer,result:0
+msgid "Suitable for other position"
+msgstr "Başka pozisyon için uygun"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__summary_information
+msgid "Summary Information "
+msgstr "Özet Bilgi"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_tree2
+msgid "Identity Number"
+msgstr "T.C. Kimlik No"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.portal_my_resume
+msgid "Identity Number"
+msgstr "TC Kimlik No"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.footer_custom
+msgid "TUSAŞ"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__category_id
+msgid "Tags"
+msgstr "Etiketler"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__vat
+msgid "Tax ID"
+msgstr "Vergi NO"
+
+#. module: hr_recruitment_tai
+#: selection:hr.interview,interview__type:0
+msgid "Technical"
+msgstr "Teknik"
+
+#. module: hr_recruitment_tai
+#: model:hr.recruitment.stage,name:hr_recruitment_tai.teknik_degerlendirme
+msgid "Technical Evaluation"
+msgstr "Teknik Değerlendirme"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_recruitment_candidate__vat
+msgid "The Tax Identification Number. Complete it if the contact is subjected to government taxes. Used in some legal statements."
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_recruitment_candidate__website_url
+msgid "The full URL to access the document through the website."
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_recruitment_candidate__user_id
+msgid "The internal user in charge of this contact."
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_recruitment_candidate__tz
+msgid "The partner's timezone, used to output proper date and time values inside printed reports. It is important to set a value for this field. You should use the same timezone that is otherwise used to pick and render date and time values: your computer's timezone."
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_education__thesis_name
+msgid "Thesis Name"
+msgstr "Tez Adı"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__tz
+msgid "Timezone"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__tz_offset
+msgid "Timezone offset"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__title
+msgid "Title"
+msgstr "Başlık"
+
+#. module: hr_recruitment_tai
+#: selection:hr.interview,activity_state:0
+#: selection:hr.recruitment.candidate,activity_state:0
+msgid "Today"
+msgstr "Bugün"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__tckn
+msgid "Turkish Identity Number"
+msgstr "Kimlik Numarası"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_applicant__work_type
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__interview__type
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__work_type
+msgid "Type"
+msgstr "Tip"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.footer_custom
+msgid "Türk Havacılık ve Uzay Sanayii A.Ş.  is the center of technology in design, development, manufacturing, integration of aerospace systems at Defence Industry. ."
+msgstr "Türk Havacılık Uzay Sanayii A.Ş. havacılık alanında öncü bir üretim şirketidir."
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__message_unread
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__message_unread
+msgid "Unread Messages"
+msgstr "Okunmamış Mesajlar"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__message_unread_counter
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Okunmamış Mesaj Sayısı"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_recruitment_candidate__barcode
+msgid "Use a barcode to identify this contact from the Point of Sale."
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_recruitment_candidate__type
+msgid "Used by Sales and Purchase Apps to select the relevant address depending on the context."
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model,name:hr_recruitment_tai.model_res_users
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__user_ids
+msgid "Users"
+msgstr "Kullanıcılar"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__website_published
+msgid "Visible on current website"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_form
+msgid "Visitors Systems Records"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__website
+msgid "Website"
+msgstr "Website"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__website_message_ids
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__website_description
+msgid "Website Partner Full Description"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__website_short_description
+msgid "Website Partner Short Description"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__website_url
+msgid "Website URL"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_interview__website_message_ids
+#: model:ir.model.fields,help:hr_recruitment_tai.field_hr_recruitment_candidate__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__website_meta_description
+msgid "Website meta description"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__website_meta_keywords
+msgid "Website meta keywords"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__website_meta_title
+msgid "Website meta title"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__website_meta_og_img
+msgid "Website opengraph image"
+msgstr ""
+
+#. module: hr_recruitment_tai
+#: selection:hr.recruitment.candidate,work_type:0
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.hr_applicant_view_search_inherit_include_archived
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_filter
+msgid "White Collar"
+msgstr "Beyaz Yaka"
+
+#. module: hr_recruitment_tai
+#: selection:hr.recruitment.candidate,gender:0
+msgid "Woman"
+msgstr "Kadın"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate_experience__type
+msgid "Working Type"
+msgstr "Çalışma Tipi"
+
+#. module: hr_recruitment_tai
+#: selection:hr.recruitment.candidate,judicial_status:0
+msgid "Yes"
+msgstr "Var"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.portal_home_replace
+msgid "Your Applications"
+msgstr "Başvurularınız"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.portal_my_resume
+msgid "Your Contact Details"
+msgstr "İletişim Detaylarınız"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.portal_my_resume
+msgid "Your Name"
+msgstr "İsminiz"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.portal_breadcrumb_my_resume
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.portal_my_resume
+msgid "Your Resume"
+msgstr "Özgeçmişiniz"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__zip
+msgid "Zip"
+msgstr "Posta Kodu"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.portal_my_resume
+msgid "Zip / Postal Code"
+msgstr "Posta Kodu"
+
+#. module: hr_recruitment_tai
+#: model:ir.model,name:hr_recruitment_tai.model_hr_interview
+msgid "hr.interview"
+msgstr "Görüşme"
+
+#. module: hr_recruitment_tai
+#: model:ir.model,name:hr_recruitment_tai.model_hr_interview_interviewer
+msgid "hr.interview.interviewer"
+msgstr "Görüşmeci"
+
+#. module: hr_recruitment_tai
+#: model:ir.model,name:hr_recruitment_tai.model_hr_recruitment_candidate_course
+msgid "hr.recruitment.candidate.course"
+msgstr "Eğitim"
+
+#. module: hr_recruitment_tai
+#: model:ir.model,name:hr_recruitment_tai.model_hr_recruitment_candidate_degree
+msgid "hr.recruitment.candidate.degree"
+msgstr "Derece"
+
+#. module: hr_recruitment_tai
+#: model:ir.model,name:hr_recruitment_tai.model_hr_recruitment_candidate_department
+msgid "hr.recruitment.candidate.department"
+msgstr "Bölüm"
+
+#. module: hr_recruitment_tai
+#: model:ir.model,name:hr_recruitment_tai.model_hr_recruitment_candidate_education
+msgid "hr.recruitment.candidate.education"
+msgstr "Öğrenim"
+
+#. module: hr_recruitment_tai
+#: model:ir.model,name:hr_recruitment_tai.model_hr_recruitment_candidate_exam
+msgid "hr.recruitment.candidate.exam"
+msgstr "Sınav"
+
+#. module: hr_recruitment_tai
+#: model:ir.model,name:hr_recruitment_tai.model_hr_recruitment_candidate_experience
+msgid "hr.recruitment.candidate.experience"
+msgstr "Deneyim"
+
+#. module: hr_recruitment_tai
+#: model:ir.model,name:hr_recruitment_tai.model_hr_recruitment_candidate_knowledge
+msgid "hr.recruitment.candidate.knowledge"
+msgstr "Uzmanlık Bilgisi"
+
+#. module: hr_recruitment_tai
+#: model:ir.model,name:hr_recruitment_tai.model_hr_recruitment_candidate_referance
+msgid "hr.recruitment.candidate.referance"
+msgstr "Referans"
+
+#. module: hr_recruitment_tai
+#: model:ir.model,name:hr_recruitment_tai.model_hr_recruitment_candidate_school
+msgid "hr.recruitment.candidate.school"
+msgstr "Okul"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.portal_my_resume
+msgid "select..."
+msgstr "seçiniz..."
+
+#. module: hr_recruitment_tai
+#. openerp-web
+#: code:addons/hr_recruitment_tai/static/src/xml/templates.xml:5
+#, python-format
+msgid "new content"
+msgstr "yeni icerik"
+
+#. module: hr_recruitment_tai
+#: model:hr.recruitment.stage,name:hr_recruitment_tai.on_degerlendirme
+msgid "Pre-Evaluation"
+msgstr "Ön Değerlendirme"
+
+#. module: hr_recruitment_tai
+#: model:hr.recruitment.stage,name:hr_recruitment_tai.on_onay
+msgid "Pre-Approve"
+msgstr "Ön Onay"
+
+#. module: hr_recruitment_tai
+#: model:hr.recruitment.stage,name:hr_recruitment_tai.ik_baskani
+#: model:res.groups,name:hr_recruitment_tai.group_hr_ik_baskani
+msgid "HR Vice President"
+msgstr "İK Başkanı"
+
+#. module: hr_recruitment_tai
+#: model:res.groups,comment:hr_recruitment_tai.group_hr_ik_baskani
+msgid "HR Vice President's Role"
+msgstr "İK başkanı rolü"
+
+#. module: hr_recruitment_tai
+#: model:hr.recruitment.stage,name:hr_recruitment_tai.ise_alim_grubu
+msgid "HR Recruitment Group"
+msgstr "İşe Alım"
+
+#. module: hr_recruitment_tai
+#: model:hr.recruitment.stage,name:hr_recruitment_tai.ise_alim_muduru
+msgid "Recruitment Manager"
+msgstr "İşe Alım Müdürü"
+
+#. module: hr_recruitment_tai
+#: model:hr.recruitment.stage,name:hr_recruitment_tai.ise_alim_sefi
+msgid "Recruitment Chief"
+msgstr "İşe Alım Şefi"
+
+#. module: hr_recruitment_tai
+#. openerp-web
+#: code:addons/website/static/src/xml/website.contentMenu.xml:13
+#: model_terms:ir.ui.view,arch_db:website.500
+#: model_terms:ir.ui.view,arch_db:website.bs_debug_page_ir_ui_view
+#: model_terms:ir.ui.view,arch_db:website.footer_custom
+#: model_terms:ir.ui.view,arch_db:website.one_page_line
+#: model_terms:ir.ui.view,arch_db:website.s_tabs
+#: model:website.menu,name:website.menu_home
+#: model_terms:website.page,arch_db:website.bs_debug_page
+#, python-format
+msgid "Home"
+msgstr "Anasayfa"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment.hr_applicant_view_search
+msgid "Jobs"
+msgstr "İlanlar"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:base.field_res_users__login
+#: model_terms:ir.ui.view,arch_db:base.view_res_users_kanban
+msgid "Home"
+msgstr "Anasayfa"
+
+#. modules: hr_recruitment, hr_recruitment_tai
+#: selection:hr.applicant,kanban_state:0
+#: model:hr.recruitment.stage,name:hr_recruitment_tai.stage_rejected
+msgid "Rejected"
+msgstr "Ret"
+
+#. module: hr_recruitment_tai
+#: model:ir.actions.act_window,name:hr_recruitment_tai.action_recruitment_candidates
+#: model:ir.ui.menu,name:hr_recruitment_tai.menu_hr_recruitment_candidates
+msgid "Candidates"
+msgstr "Adaylar"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.portal_my_resume
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_form
+msgid "First Name"
+msgstr "Ad"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__firstname
+msgid "First name"
+msgstr "Adı"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__lastname
+msgid "Last name"
+msgstr "Soyadı"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.portal_my_resume
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_form
+msgid "Last Name"
+msgstr "Soyadı"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.view_candidate_form
+msgid "Visitors Systems Records"
+msgstr "Ziyaretçi Kayıtları"
+
+#. modules: hr_recruitment, hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment.field_hr_applicant__email_from
+#: model:ir.model.fields,field_description:hr_recruitment.field_hr_recruitment_source__email
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__email
+msgid "Email"
+msgstr "E-Posta"
+
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__email
+msgid "Email"
+msgstr "E-Posta"
+
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_applicant__state
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview__state
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_interview_interviewer_form__state
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__state_id
+msgid "State"
+msgstr "Durumu"
+
+
+
+#. module: hr_recruitment
+#: model:ir.model.fields,field_description:hr_recruitment.field_hr_applicant__state
+#: model_terms:ir.ui.view,arch_db:hr_recruitment.hr_applicant_view_search
+msgid "State"
+msgstr "Durumu"
+
+
+#. module: hr_recruitment
+#: model:ir.ui.menu,name:hr_recruitment.menu_crm_case_categ_all_ik
+msgid "Applications In Progress"
+msgstr "İşlemdeki Başvurular"
+
+#. module: hr_recruitment_tai
+#: model:ir.actions.act_window,name:hr_recruitment_tai.action_applicant_interviews
+#: model:ir.actions.act_window,name:hr_recruitment_tai.action_hr_interviews
+#: model:ir.ui.menu,name:hr_recruitment_tai.menu_hr_interview
+#: model:ir.ui.menu,name:hr_recruitment_tai.menu_hr_interview-other
+msgid "Interviews"
+msgstr "Görüşmeler"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.applicant_form
+msgid "<span>Interviews</span>"
+msgstr "<span>Görüşmeler</span>"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.hr_kanban_view_applicant_inherit_date_last_stage_update
+msgid "Last Update"
+msgstr "Son Güncellenme Tarihi"
+
+#. module: hr_recruitment_tai
+#: model:ir.model.fields,field_description:hr_recruitment_tai.field_hr_recruitment_candidate__date_birth
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.fields
+msgid "Birth Date"
+msgstr "Doğum Tarihi"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.fields
+msgid "Tckn"
+msgstr "Tckn"
+
+#. module: hr_recruitment_tai
+#: code:addons/hr_recruitment_tai/controllers/portal.py:97
+#, python-format
+msgid "Turkish Public Identification Number Verification Error!"
+msgstr "T.C. Kimlik No Doğrulama hatası!"
+
+#. module: hr_recruitment_tai
+#: model_terms:ir.ui.view,arch_db:hr_recruitment_tai.fields
+msgid "Turkish Citizen"
+msgstr "Türk Vatandaşı"
+
+#. module: hr_recruitment_tai
+#: code:addons/hr_recruitment_tai/controllers/portal.py:101
+#, python-format
+msgid "Please fill out Tckn No"
+msgstr "Lütfen Tckn No alanını doldurunuz"
+
+

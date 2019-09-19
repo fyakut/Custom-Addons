@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+01_admin,Admin,model_oguzhan_employee,oguzhan_group_manager,1,1,1,1
+02_admin,Admin,model_oguzhan_department,oguzhan_group_manager,1,1,1,1
+03_admin,Admin,model_oguzhan_employeedepartment,oguzhan_group_manager,1,1,1,1
+04_user,User,model_oguzhan_employee,oguzhan_group_user,1,1,1,1
+05_user,User,model_oguzhan_department,oguzhan_group_user,1,1,1,1
+06_user,User,model_oguzhan_employeedepartment,oguzhan_group_user,1,1,1,1

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<odoo>
+    <!--views-->
+
+    <record id="view_debit_form" model="ir.ui.view">
+			<field name="name">debit.equipment.form</field>
+			<field name="model">debit.equipment</field>
+			<field name="arch" type="xml">
+                <form string="Zimmet Listesi">
+                <sheet>
+                    <group>
+                        <group>
+                        <field name="t_no"/>
+                        <field name="dmb_no"/>
+                        <field name="eq_name"/>
+                        <field name="brand"/>
+                        <field name="model"/>
+                        <field name="serial_no"/>
+                        <field name="location"/>
+                        <field name="fr_no"/>
+                        <field name="arrive_date"/>
+                        </group>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+    </record>
+
+    <record id="view_debit_tree" model="ir.ui.view">
+        <field name="name">debit.equipment.tree</field>
+        <field name="model">debit.equipment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="dmb_no"/>
+                <field name="serial_no"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--actions-->
+    <record id="debit_action_list" model="ir.actions.act_window">
+        <field name="name">Personel Zimmetleri</field>
+        <field name="res_model">debit.equipment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--menus-->
+
+    <menuitem id="menu_debit_root" name="Personel Zimmet" sequence="90" />
+
+    <menuitem id="menu_debit_list" name="Personal Zimmet Listesi" parent ="menu_debit_root" sequence="20" action="debit_action_list" />
+
+</odoo>

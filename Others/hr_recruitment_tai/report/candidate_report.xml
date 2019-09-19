@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report 
+            id="action_report_candidate_cv"
+            string="CV"
+            model="hr.recruitment.candidate" 
+            report_type="qweb-html"
+            file="hr_recruitment_tai.report_candidate_cv" 
+            name="hr_recruitment_tai.report_candidate_cv"
+            print_report_name="object.display_name"
+        />
+
+        
+    </data>
+</odoo>

@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="hr_interview_interviewer_form">
+            <field name="name">hr.interview.interviewer</field>
+            <field name="model">hr.interview.interviewer</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="user_id" groups="hr_recruitment.group_hr_recruitment_user"/>
+                                <field name="final_evaluation"/>
+                                <field name="final_evaluation_comment"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_interview_form">
+            <field name="name">hr.interview.form</field>
+            <field name="model">hr.interview</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <form string="Create a interview">
+                    <header>
+                        <button string="Plan" name="action_plan" type="object" class="oe_highlight" groups="hr_recruitment.group_hr_recruitment_user"
+                                attrs="{'invisible': ['|','|',('state','=','planned'),('state', '=', 'done'),('state', '=', 'cancel') ]} "/>
+                        <button string="Done" name="action_done" type="object" class="oe_highlight" groups="hr_recruitment.group_hr_recruitment_user"
+                                attrs="{'invisible': ['|','|',('state','=','done'),('state', '=', 'draft'),('state', '=', 'cancel')]} "/>
+                        <button string="Cancel" name="action_cancel" type="object" class="oe_highlight" groups="hr_recruitment.group_hr_recruitment_user"
+                                attrs="{'invisible': ['|',('state','=','done'),('state', '=', 'cancel')]} "/>
+
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+
+                        <group>
+                            <group>
+                                <div class="oe_title">
+                                    <h1>
+                                    </h1>
+                                </div>
+                                <field name="applicant_id"/>
+                                <field name="interview_type"/>
+                                <field name="responsible_id" options="{'no_open': True , 'no_create_edit': True}"/>
+                            </group>
+
+                            <group>
+                                <label for="id" string="Date"/>
+                                 <div>
+                                    <field name="date_start" class="oe_inline"/>
+                                </div>
+                                 <button string="Send Mail to Interviewers" name="send_mail_to_interviewers" type="object" class="oe_highlight" groups="hr_recruitment.group_hr_recruitment_user" />
+                                 <button string="Send Mail to Candidate" name="send_mail_to_candidate" type="object" class="oe_highlight" groups="hr_recruitment.group_hr_recruitment_user" />
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page name="interviewers" string="Interviewers">
+                                <field name="interviewer_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+         <record model="ir.actions.act_window" id="action_fill_interview_form">
+	        <field name="name">Question List</field>
+	        <field name="res_model">hr.interview.question.answer</field>
+	        <field name="view_mode">tree,form</field>
+	        <field name="view_id" eval="False"/>
+	        <field name="context">{'default_interviewer_id':active_id}</field>
+            <field name="domain">[('interviewer_id','=',active_id)]</field>
+<!--	        <field name="domain">[('interviewer_id','=',active_id), ('state', '!=', 'done')]</field>-->
+	    </record>
+
+        <record model="ir.ui.view" id="hr_interview_question_answer_form">
+            <field name="name">hr.interview.question.answer.form</field>
+            <field name="model">hr.interview.question.answer</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="state" invisible="1" />
+                                <field name="question_definition" readonly="1"/>
+                                <field name="question_answer"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_hr_interview_question_answer_tree">
+            <field name="name">hr.interview.question.answer.tree</field>
+            <field name="model">hr.interview.question.answer</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+<!--                 <header>-->
+<!--                            <button string="Complete" name="complete_evaluation" type="object" class="oe_highlight"-->
+<!--                                    attrs="{'invisible': ['|','|',('state','=','draft'),('state', '=', 'done'),('state', '=', 'cancel') ]} "/>-->
+<!--                 </header>-->
+                <tree string="Questions">
+                    <field name="state"/>
+                    <field name="question_definition"/>
+                    <field name="question_answer"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_candidate_interviewers_tree">
+            <field name="name">hr.interview.interviewer.tree</field>
+            <field name="model">hr.interview.interviewer</field>
+            <field name="domain">[('user_id', '=', uid)]</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Create a interviewer">
+                    <field name="user_id"/>
+                    <field name="state"/>
+                    <field name="final_evaluation"/>
+                    <field name="final_evaluation_comment"/>
+                    <button string="Send Interview" name="send_interview" type="object" class="oe_highlight"  attrs="{'invisible': [('state','!=','draft')]} "  />
+                    <button string="Evaluation Questions" name="%(action_fill_interview_form)d" type="action"
+                              class="oe_highlight"
+                              context="{'default_interviewer_id':active_id}">
+                    </button>
+                    <button string="Complete Evaluation" name="complete_evaluation" type="object" class="oe_highlight"  attrs="{'invisible': [('state','!=','planned')]} "  />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_interview_tree">
+            <field name="name">Hr Interview Tree</field>
+            <field name="model">hr.interview</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="applicant_id"/>
+                    <field name="date_start"/>
+                    <field name="state"/>
+                    <field name="responsible_id"/>
+                </tree>
+            </field>
+            <field name="priority" eval="30"/>
+        </record>
+
+
+        <record model="ir.ui.view" id="view_interview_tree">
+            <field name="name">Hr Interview Tree</field>
+            <field name="model">hr.interview</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="applicant_id"/>
+                    <field name="date_start"/>
+                    <field name="state"/>
+                    <field name="responsible_id"/>
+                </tree>
+            </field>
+            <field name="priority" eval="30"/>
+        </record>
+
+
+        <record model="ir.ui.view" id="hr_interview_kanban_view">
+            <field name="name">Hr Interview Kanban</field>
+            <field name="model">hr.interview</field>
+            <field name="domain">[('user_id','=',10)]</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="state">
+                    <field name="state"/>
+                    <field name="applicant_id"/>
+
+                    <field name="responsible_id"/>
+                    <field name="date_start"/>
+                    <templates>
+
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click oe_candidate_kanban oe_semantic_html_override">
+
+                                <div class="oe_kanban_content">
+                                    <div class="o_kanban_record_top">
+                                        <div class="o_kanban_record_headings">
+                                            <b class="o_kanban_record_title mt8">
+                                                <field name="applicant_id"/>
+                                                <br/>
+                                                <field name="interview_type"/>
+                                                <br/>
+                                            </b>
+                                            <div class="o_kanban_record_subtitle">
+                                                <field name="date_start"/>
+
+                                            </div>
+                                            <field name="responsible_id"/>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="oe_clear"></div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="interview_questions">
+            <field name="name">Interview Questions</field>
+            <field name="res_model">hr.interview.questions</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" eval="False"/>
+            <field name="context">{}</field>
+            <field name="domain">[]</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_hr_interviewers">
+            <field name="name">Interviewers</field>
+            <field name="res_model">hr.interview.interviewer</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" eval="False"/>
+	        <field name="context"></field>
+            <field name="domain"></field>
+        </record>
+
+
+
+        <record model="ir.actions.act_window" id="action_hr_interviews">
+            <field name="name">Interviews</field>
+            <field name="res_model">hr.interview</field>
+            <field name="view_mode">kanban,tree,form,pivot,graph,activity</field>
+            <field name="view_id" eval="False"/>
+            <field name="context">{}</field>
+            <field name="domain">[]</field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_interview_questions_tree">
+            <field name="name">hr.interview.questions.tree</field>
+            <field name="model">hr.interview.questions</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Questions">
+                    <field name="interview_type"/>
+                    <field name="question_definition"/>
+                </tree>
+            </field>
+        </record>
+
+
+
+
+
+        <menuitem
+                name="Interviews"
+                id="menu_hr_interview"
+                parent="hr_recruitment.menu_crm_case_categ0_act_job"
+                action="action_hr_interviews"
+                sequence="3"/>
+
+        <menuitem
+            id="menu_hr_recruitment_questions"
+            name="Questions"
+            parent="hr_recruitment.menu_hr_recruitment_configuration"
+            action="interview_questions"
+            sequence="11"/>
+
+    </data>
+</odoo>
