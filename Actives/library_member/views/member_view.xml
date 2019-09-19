@@ -9,7 +9,7 @@
         <field name="arch" type="xml">
             <form string="Member">
                 <group>
-
+                    <field name="partner_id"/>
                     <field name="card_number"/>
                 </group>
                 <!-- mail mixin fields -->

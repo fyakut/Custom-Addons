@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="course_form" model="ir.ui.view">
+        <field name="name">Courses</field>
+        <field name="model">academy.courses</field>
+        <field name="arch" type="xml">
+            <form string="Courses">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="course_no"/>
+                        <field name="teacher" widget="many2many_tags"/>
+                        <field name="priority" />
+                        <field name="employee_ids"/>
+                    </group>
+                    <group>
+                        <field name="start_date"/>
+                        <field name="duration"/>
+                        <field name="expiry_date"/>
+                        <field name="expiry_status"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="course_list_view" model="ir.ui.view">
+        <field name="name">Courses</field>
+        <field name="model">academy.courses</field>
+        <field name="arch" type="xml">
+            <tree string="Courses">
+                <field name="name"/>
+                <field name="course_no"/>
+                <field name="teacher" widget="many2many_tags"/>
+                <field name="priority" />
+                <field name="employee_ids"/>
+                <field name="start_date"/>
+                <field name="duration"/>
+                <field name="expiry_date"/>
+                <field name="expiry_status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="course_action" model="ir.actions.act_window">
+        <field name="name">Courses</field>
+        <field name="res_model">academy.courses</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Academy" id="academy_root" sequence="5"/>
+    <menuitem name="Courses" id="course" sequence="5" action="course_action" parent="academy_root"/>
+</odoo>
