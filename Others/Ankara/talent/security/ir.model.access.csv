@@ -1,5 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_talent_definition_user,talent.definition,model_talent_definition,group_talent_user,1,0,1,0
-access_talent_definition_manager,talent.definition,model_talent_definition,group_talent_manager,1,1,1,1
-access_talent_employee_user,talent.employee,model_talent_employee,group_talent_user,1,0,1,0
-access_talent_employee_manager,talent.employee,model_talent_employee,group_talent_manager,1,1,1,1

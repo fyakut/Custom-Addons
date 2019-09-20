@@ -1,1 +1,0 @@
-from . import certification, certification_standart, res_partner

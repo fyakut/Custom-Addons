@@ -1,6 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_tracking_device,tracking.device,model_tracking_device,base.group_user,1,1,1,1
-access_tracking_movement,tracking.movement,model_tracking_movement,base.group_user,1,1,1,1
-access_tracking_deviceobject,tracking.deviceobject,model_tracking_deviceobject,base.group_user,1,1,1,1
-access_tracking_location,tracking.location,model_tracking_location,base.group_user,1,1,1,1
-access_tracking_authorization,tracking.authorization,model_tracking_authorization,base.group_user,1,1,1,1
