@@ -8,7 +8,7 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
-                    <field name="talent_id"/>
+                    <field name="talent_ids"/>
                 </tree>
             </field>
         </record>
@@ -24,14 +24,12 @@
                             <field name="email"/>
                             <field name="department_id"/>
                             <field name="role_id"/>
-                            <field name="talent_id"/>
+                            <field name="talent_ids"/>
                         </group>
                     </sheet>
                 </form>
             </field>
         </record>
-
-
         <!-- actions opening views on models -->
 
         <record model="ir.actions.act_window" id="action_talent_employee">
@@ -39,7 +37,6 @@
             <field name="res_model">talent.employee</field>
             <field name="view_mode">tree,form</field>
         </record>
-
 
         <!-- Top menu item -->
 

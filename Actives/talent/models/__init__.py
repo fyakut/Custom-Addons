@@ -1,3 +1,1 @@
-# -*- coding: utf-8 -*-
-
-from . import talent
+from . import talent_definition, talent_employee
