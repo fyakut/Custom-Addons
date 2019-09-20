@@ -1,6 +1,6 @@
 from odoo import api, models, fields
 from dateutil.relativedelta import relativedelta as delta
-
+from odoo.exceptions import ValidationError
 
 class Personnel(models.Model):
     _inherit = 'hr.employee'
@@ -14,11 +14,14 @@ class Personnel(models.Model):
     sicil_no = fields.Char(string='Sicil No')
 
     start_date = fields.Date(string='Start Date')
-    service_time = fields.Char(string='Time Worked')
+    service_time = fields.Char(string='Time Worked', compute='_compute_service_time', store=True)
 
-    @api.onchange('start_date')
+    @api.depends("start_date")
     def _compute_service_time(self):
         ## İki tarih arası yıl, ay, gün hesaplayan class
         time_worked = delta(fields.datetime.now(), self.start_date)
-        ## Burda da güzel bir hale dönüştürüyoruz.
-        self.service_time = str(time_worked.years) + ' year(s) ' + str(time_worked.months) + ' month(s) '+ str(time_worked.days) + ' day(s)'
+        if (time_worked.days < 0) or (time_worked.months < 0) or (time_worked.years < 0):
+            raise ValidationError('Start date is selected beyond today !!!')
+        else:
+            ## Burda da güzel bir hale dönüştürüyoruz.
+            self.service_time = str(time_worked.years) + ' year(s) ' + str(time_worked.months) + ' month(s) ' + str(time_worked.days) + ' day(s)'
