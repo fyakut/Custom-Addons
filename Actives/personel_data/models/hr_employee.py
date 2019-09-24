@@ -13,15 +13,17 @@ class Personnel(models.Model):
     rank = fields.Char(string='Rank')
     sicil_no = fields.Char(string='Sicil No')
 
-    start_date = fields.Date(string='Start Date')
+    start_date = fields.Date(string='Start Date', default=fields.date.today())
     service_time = fields.Char(string='Time Worked', compute='_compute_service_time', store=True)
 
     @api.depends("start_date")
     def _compute_service_time(self):
         ## İki tarih arası yıl, ay, gün hesaplayan class
-        time_worked = delta(fields.datetime.now(), self.start_date)
-        if (time_worked.days < 0) or (time_worked.months < 0) or (time_worked.years < 0):
-            raise ValidationError('Start date is selected beyond today !!!')
-        else:
-            ## Burda da güzel bir hale dönüştürüyoruz.
-            self.service_time = str(time_worked.years) + ' year(s) ' + str(time_worked.months) + ' month(s) ' + str(time_worked.days) + ' day(s)'
+        for record in self:
+            if record.ensure_one():
+                time_worked = delta(fields.date.today(), record.start_date)
+                if (time_worked.days < 0) or (time_worked.months < 0) or (time_worked.years < 0):
+                    raise ValidationError('Start date is selected beyond today !!!')
+                else:
+                    ## Burda da güzel bir hale dönüştürüyoruz.
+                    record.service_time = str(time_worked.years) + ' year(s) ' + str(time_worked.months) + ' month(s) ' + str(time_worked.days) + ' day(s)'
