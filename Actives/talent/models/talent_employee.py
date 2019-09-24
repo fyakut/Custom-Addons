@@ -1,6 +1,7 @@
 from odoo import models, fields, api
 from odoo.exceptions import Warning
 
+
 class Employee(models.Model):
     _name = 'talent.employee'
     _description = 'Employees'
